@@ -15,6 +15,11 @@ atver vietni ar VS Code paplašinājumu "Live Server" vai publicēto versiju.
 Serveris nav vajadzīgs. Bootstrap un ikonas ir mapē `vendor`, tāpēc vietne strādā arī bez interneta.
 Internets vajadzīgs tikai Google Fonts fontiem un kartei lapā "Kontakti".
 
+## Tumšais režīms
+
+Noklusējumā vietne tiek rādīta tumšajā režīmā. Ar pogu navigācijas joslā (saule vai mēness) var pārslēgt uz gaišo režīmu, un izvēle tiek saglabāta pārlūkā.
+Krāsas abiem režīmiem ir failā `scss/_theme.scss`.
+
 ## Kā mainīt dizainu (SCSS)
 
 Stili tiek rakstīti mapē `scss` un kompilēti uz `css/style.css`.
@@ -50,7 +55,7 @@ galerija.html           attēlu galerija
 par-mums.html           par projektu
 kontakti.html           kontakti, karte, atsauksmju forma
 
-scss/   _variables, _mixins, _base, _layout, _components, _game, main
+scss/   _variables, _mixins, _theme, _base, _layout, _components, _game, main
 css/    style.css (kompilēts no SCSS)
 js/     main.js, game.js, editor.js, validation.js
 data/   question-sets.js (6 krājumi, 150 jautājumi)

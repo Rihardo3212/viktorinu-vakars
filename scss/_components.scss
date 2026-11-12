@@ -37,8 +37,8 @@
 }
 
 .btn-outline-navy {
-  border: 2px solid $navy;
-  color: $navy;
+  border: 2px solid var(--vv-outline);
+  color: var(--vv-outline);
   font-weight: 700;
 
   &:hover,
@@ -126,8 +126,8 @@
   border-radius: 999px;
   font-size: 0.8rem;
   font-weight: 700;
-  background: rgba($navy, 0.08);
-  color: $navy;
+  background: var(--vv-badge-bg);
+  color: var(--vv-heading);
 }
 
 /* ---------- Ikonu kartītes ---------- */
@@ -138,7 +138,7 @@
 
   .bi {
     font-size: 2rem;
-    color: $navy-light;
+    color: var(--vv-link);
   }
 }
 
@@ -155,7 +155,7 @@
   }
 
   figcaption {
-    color: $muted;
+    color: var(--vv-muted);
     font-weight: 700;
   }
 }
@@ -171,7 +171,7 @@
     font-family: $font-heading;
     font-size: 2.25rem;
     font-weight: 700;
-    color: $navy;
+    color: var(--vv-heading);
   }
 
   &.featured {
@@ -298,14 +298,14 @@
 
   .bi {
     font-size: 1.4rem;
-    color: $navy-light;
+    color: var(--vv-link);
   }
 }
 
 /* ---------- BUJ akordeons ---------- */
 .accordion-button:not(.collapsed) {
   background-color: rgba($gold, 0.2);
-  color: $navy;
+  color: var(--vv-heading);
 }
 
 .accordion-button:focus {
@@ -317,4 +317,38 @@
   @include card-base;
   width: 100%;
   height: auto;
+}
+
+/* ---------- Vērtējums ar zvaigznēm (kontaktu forma) ---------- */
+// Izvēlētā poga: tumši zils fons un zelta teksts
+.btn-check:checked + .btn-outline-navy {
+  background-color: $navy;
+  border-color: $navy;
+  color: $gold;
+}
+
+// Pogas līdz izvēlētajai iekrāso ar JavaScript (klase is-filled)
+.rating .btn.is-filled:not(:hover) {
+  background-color: rgba($gold, 0.35);
+}
+
+.rating .btn-check:checked + .btn {
+  background-color: $navy;
+  color: $gold;
+}
+
+.btn-check:focus-visible + .btn {
+  outline: 3px solid $gold;
+  outline-offset: 2px;
+}
+
+/* ---------- Tumšā režīma poga navigācijā ---------- */
+.theme-toggle {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 }

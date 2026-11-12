@@ -1,0 +1,45 @@
+// =========================================================
+// _theme.scss
+// Gaišā un tumšā režīma krāsas kā CSS mainīgie.
+// Tumšo režīmu ieslēdz atribūts data-bs-theme="dark" uz <html>
+// (to pārslēdz js/main.js). Bootstrap komponentes šo atribūtu
+// atpazīst pašas, bet mūsu stili izmanto šos mainīgos.
+// =========================================================
+
+@use "variables" as *;
+
+/* ---------- Gaišais režīms (noklusējums) ---------- */
+:root,
+[data-bs-theme="light"] {
+  --vv-bg: #{$cream};             // lapas fons
+  --vv-surface: #{$white};        // kartītes, formas, tabulas
+  --vv-text: #{$ink};             // pamatteksts
+  --vv-muted: #{$muted};          // sekundārais teksts
+  --vv-heading: #{$navy};         // virsraksti
+  --vv-link: #{$navy-light};      // saites
+  --vv-link-hover: #{$navy};
+  --vv-outline: #{$navy};         // apmales pogām
+  --vv-badge-bg: rgba(11, 31, 77, 0.08);
+  --vv-border: rgba(11, 31, 77, 0.15);
+  --vv-shadow: #{$shadow};
+}
+
+/* ---------- Tumšais režīms ---------- */
+[data-bs-theme="dark"] {
+  --vv-bg: #0e1424;
+  --vv-surface: #182033;
+  --vv-text: #e6e9f2;
+  --vv-muted: #b3bccd;
+  --vv-heading: #f1f3f9;
+  --vv-link: #9ec1ff;
+  --vv-link-hover: #c8dbff;
+  --vv-outline: #c8d3ee;
+  --vv-badge-bg: rgba(255, 255, 255, 0.1);
+  --vv-border: rgba(255, 255, 255, 0.15);
+  --vv-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.45);
+
+  // Bootstrap tabulām, formām un logiem tāds pats fons kā kartītēm
+  --bs-body-bg: #182033;
+  --bs-body-color: #e6e9f2;
+  --bs-secondary-color: #b3bccd;
+}

@@ -8,8 +8,8 @@
 
 body {
   font-family: $font-body;
-  background-color: $cream;
-  color: $ink;
+  background-color: var(--vv-bg);
+  color: var(--vv-text);
   line-height: 1.65;
   // Lai kājene vienmēr būtu lapas apakšā arī īsām lapām
   min-height: 100vh;
@@ -25,16 +25,16 @@ h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {
   font-family: $font-heading;
   font-weight: 700;
-  color: $navy;
+  color: var(--vv-heading);
   line-height: 1.25;
 }
 
 a {
-  color: $navy-light;
+  color: var(--vv-link);
   text-underline-offset: 3px;
 
   &:hover {
-    color: $navy;
+    color: var(--vv-link-hover);
   }
 }
 
@@ -46,7 +46,7 @@ a {
 
 // Sekundārais teksts ar pietiekamu kontrastu
 .text-soft {
-  color: $muted;
+  color: var(--vv-muted);
 }
 
 // Sadaļu atstarpes
@@ -59,7 +59,7 @@ a {
 }
 
 .section-alt {
-  background: $white;
+  background: var(--vv-surface);
 }
 
 .section-title {
@@ -67,7 +67,7 @@ a {
 }
 
 .section-lead {
-  color: $muted;
+  color: var(--vv-muted);
   max-width: 42rem;
   margin-bottom: 2rem;
 }

@@ -1,8 +1,42 @@
 @charset "UTF-8";
+/* ---------- Gaišais režīms (noklusējums) ---------- */
+:root,
+[data-bs-theme=light] {
+  --vv-bg: #f7f8fc;
+  --vv-surface: #ffffff;
+  --vv-text: #1d2333;
+  --vv-muted: #5a6275;
+  --vv-heading: #0b1f4d;
+  --vv-link: #16337a;
+  --vv-link-hover: #0b1f4d;
+  --vv-outline: #0b1f4d;
+  --vv-badge-bg: rgba(11, 31, 77, 0.08);
+  --vv-border: rgba(11, 31, 77, 0.15);
+  --vv-shadow: 0 0.5rem 1.5rem rgba(11, 31, 77, 0.12);
+}
+
+/* ---------- Tumšais režīms ---------- */
+[data-bs-theme=dark] {
+  --vv-bg: #0e1424;
+  --vv-surface: #182033;
+  --vv-text: #e6e9f2;
+  --vv-muted: #b3bccd;
+  --vv-heading: #f1f3f9;
+  --vv-link: #9ec1ff;
+  --vv-link-hover: #c8dbff;
+  --vv-outline: #c8d3ee;
+  --vv-badge-bg: rgba(255, 255, 255, 0.1);
+  --vv-border: rgba(255, 255, 255, 0.15);
+  --vv-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.45);
+  --bs-body-bg: #182033;
+  --bs-body-color: #e6e9f2;
+  --bs-secondary-color: #b3bccd;
+}
+
 body {
   font-family: "Nunito", "Segoe UI", Arial, sans-serif;
-  background-color: #f7f8fc;
-  color: #1d2333;
+  background-color: var(--vv-bg);
+  color: var(--vv-text);
   line-height: 1.65;
   min-height: 100vh;
   display: flex;
@@ -17,16 +51,16 @@ h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {
   font-family: "Poppins", "Segoe UI", Arial, sans-serif;
   font-weight: 700;
-  color: #0b1f4d;
+  color: var(--vv-heading);
   line-height: 1.25;
 }
 
 a {
-  color: #16337a;
+  color: var(--vv-link);
   text-underline-offset: 3px;
 }
 a:hover {
-  color: #0b1f4d;
+  color: var(--vv-link-hover);
 }
 
 :focus-visible {
@@ -35,7 +69,7 @@ a:hover {
 }
 
 .text-soft {
-  color: #5a6275;
+  color: var(--vv-muted);
 }
 
 .section {
@@ -48,7 +82,7 @@ a:hover {
 }
 
 .section-alt {
-  background: #ffffff;
+  background: var(--vv-surface);
 }
 
 .section-title {
@@ -56,7 +90,7 @@ a:hover {
 }
 
 .section-lead {
-  color: #5a6275;
+  color: var(--vv-muted);
   max-width: 42rem;
   margin-bottom: 2rem;
 }
@@ -209,8 +243,8 @@ a:hover {
 }
 
 .btn-outline-navy {
-  border: 2px solid #0b1f4d;
-  color: #0b1f4d;
+  border: 2px solid var(--vv-outline);
+  color: var(--vv-outline);
   font-weight: 700;
 }
 .btn-outline-navy:hover, .btn-outline-navy:focus {
@@ -246,9 +280,9 @@ a:hover {
 
 /* ---------- Soļi "Kā tas strādā" ---------- */
 .step {
-  background: #ffffff;
+  background: var(--vv-surface);
   border-radius: 0.75rem;
-  box-shadow: 0 0.5rem 1.5rem rgba(11, 31, 77, 0.12);
+  box-shadow: var(--vv-shadow);
   border: 0;
   padding: 1.75rem;
   height: 100%;
@@ -270,9 +304,9 @@ a:hover {
 
 /* ---------- Tēmu krājumu kartītes ---------- */
 .set-card {
-  background: #ffffff;
+  background: var(--vv-surface);
   border-radius: 0.75rem;
-  box-shadow: 0 0.5rem 1.5rem rgba(11, 31, 77, 0.12);
+  box-shadow: var(--vv-shadow);
   border: 0;
   overflow: hidden;
   height: 100%;
@@ -299,29 +333,29 @@ a:hover {
   border-radius: 999px;
   font-size: 0.8rem;
   font-weight: 700;
-  background: rgba(11, 31, 77, 0.08);
-  color: #0b1f4d;
+  background: var(--vv-badge-bg);
+  color: var(--vv-heading);
 }
 
 /* ---------- Ikonu kartītes ---------- */
 .feature {
-  background: #ffffff;
+  background: var(--vv-surface);
   border-radius: 0.75rem;
-  box-shadow: 0 0.5rem 1.5rem rgba(11, 31, 77, 0.12);
+  box-shadow: var(--vv-shadow);
   border: 0;
   padding: 1.5rem;
   height: 100%;
 }
 .feature .bi {
   font-size: 2rem;
-  color: #16337a;
+  color: var(--vv-link);
 }
 
 /* ---------- Atsauksmes ---------- */
 .testimonial {
-  background: #ffffff;
+  background: var(--vv-surface);
   border-radius: 0.75rem;
-  box-shadow: 0 0.5rem 1.5rem rgba(11, 31, 77, 0.12);
+  box-shadow: var(--vv-shadow);
   border: 0;
   padding: 1.5rem;
   height: 100%;
@@ -332,15 +366,15 @@ a:hover {
   font-style: italic;
 }
 .testimonial figcaption {
-  color: #5a6275;
+  color: var(--vv-muted);
   font-weight: 700;
 }
 
 /* ---------- Cenu paketes ---------- */
 .price-card {
-  background: #ffffff;
+  background: var(--vv-surface);
   border-radius: 0.75rem;
-  box-shadow: 0 0.5rem 1.5rem rgba(11, 31, 77, 0.12);
+  box-shadow: var(--vv-shadow);
   border: 0;
   padding: 2rem 1.5rem;
   height: 100%;
@@ -350,7 +384,7 @@ a:hover {
   font-family: "Poppins", "Segoe UI", Arial, sans-serif;
   font-size: 2.25rem;
   font-weight: 700;
-  color: #0b1f4d;
+  color: var(--vv-heading);
 }
 .price-card.featured {
   border: 3px solid #f5c518;
@@ -358,9 +392,9 @@ a:hover {
 
 /* ---------- Tabulas ---------- */
 .table-quiz {
-  background: #ffffff;
+  background: var(--vv-surface);
   border-radius: 0.75rem;
-  box-shadow: 0 0.5rem 1.5rem rgba(11, 31, 77, 0.12);
+  box-shadow: var(--vv-shadow);
   border: 0;
   overflow: hidden;
   margin-bottom: 0;
@@ -380,9 +414,9 @@ a:hover {
 
 /* ---------- Formas ---------- */
 .form-card {
-  background: #ffffff;
+  background: var(--vv-surface);
   border-radius: 0.75rem;
-  box-shadow: 0 0.5rem 1.5rem rgba(11, 31, 77, 0.12);
+  box-shadow: var(--vv-shadow);
   border: 0;
   padding: 1.5rem;
 }
@@ -414,9 +448,9 @@ a:hover {
 
 /* ---------- Galerija ---------- */
 .gallery-item {
-  background: #ffffff;
+  background: var(--vv-surface);
   border-radius: 0.75rem;
-  box-shadow: 0 0.5rem 1.5rem rgba(11, 31, 77, 0.12);
+  box-shadow: var(--vv-shadow);
   border: 0;
   overflow: hidden;
   margin: 0;
@@ -448,9 +482,9 @@ a:hover {
 
 /* ---------- Karte ---------- */
 .map-frame {
-  background: #ffffff;
+  background: var(--vv-surface);
   border-radius: 0.75rem;
-  box-shadow: 0 0.5rem 1.5rem rgba(11, 31, 77, 0.12);
+  box-shadow: var(--vv-shadow);
   border: 0;
   overflow: hidden;
   aspect-ratio: 4/3;
@@ -479,13 +513,13 @@ a:hover {
 }
 .contact-list .bi {
   font-size: 1.4rem;
-  color: #16337a;
+  color: var(--vv-link);
 }
 
 /* ---------- BUJ akordeons ---------- */
 .accordion-button:not(.collapsed) {
   background-color: rgba(245, 197, 24, 0.2);
-  color: #0b1f4d;
+  color: var(--vv-heading);
 }
 
 .accordion-button:focus {
@@ -494,12 +528,44 @@ a:hover {
 
 /* ---------- Teksta un attēla bloks ---------- */
 .media-block img {
-  background: #ffffff;
+  background: var(--vv-surface);
   border-radius: 0.75rem;
-  box-shadow: 0 0.5rem 1.5rem rgba(11, 31, 77, 0.12);
+  box-shadow: var(--vv-shadow);
   border: 0;
   width: 100%;
   height: auto;
+}
+
+/* ---------- Vērtējums ar zvaigznēm (kontaktu forma) ---------- */
+.btn-check:checked + .btn-outline-navy {
+  background-color: #0b1f4d;
+  border-color: #0b1f4d;
+  color: #f5c518;
+}
+
+.rating .btn.is-filled:not(:hover) {
+  background-color: rgba(245, 197, 24, 0.35);
+}
+
+.rating .btn-check:checked + .btn {
+  background-color: #0b1f4d;
+  color: #f5c518;
+}
+
+.btn-check:focus-visible + .btn {
+  outline: 3px solid #f5c518;
+  outline-offset: 2px;
+}
+
+/* ---------- Tumšā režīma poga navigācijā ---------- */
+.theme-toggle {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 }
 
 /* ---------- Spēles lapas fons ---------- */
@@ -608,8 +674,8 @@ a:hover {
 }
 
 .team-score {
-  background: #ffffff;
-  color: #0b1f4d;
+  background: var(--vv-surface);
+  color: var(--vv-heading);
   border-radius: 0.75rem;
   padding: 0.75rem 1rem;
   text-align: center;
@@ -706,9 +772,9 @@ a:hover {
 
 /* ---------- Savas spēles redaktors ---------- */
 .editor-category {
-  background: #ffffff;
+  background: var(--vv-surface);
   border-radius: 0.75rem;
-  box-shadow: 0 0.5rem 1.5rem rgba(11, 31, 77, 0.12);
+  box-shadow: var(--vv-shadow);
   border: 0;
   padding: 1.25rem;
   margin-bottom: 1.25rem;
@@ -717,11 +783,11 @@ a:hover {
   font-family: "Poppins", "Segoe UI", Arial, sans-serif;
   font-weight: 700;
   font-size: 1.1rem;
-  color: #0b1f4d;
+  color: var(--vv-heading);
 }
 
 .editor-row {
-  border-top: 1px dashed rgba(11, 31, 77, 0.15);
+  border-top: 1px dashed var(--vv-border);
   padding-top: 0.75rem;
   margin-top: 0.75rem;
 }

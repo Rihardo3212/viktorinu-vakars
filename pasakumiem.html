@@ -18,6 +18,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&amp;family=Poppins:wght@600;700&amp;display=swap">
 
+  <!-- ===== Tumšais režīms (noklusējums): izvēle tiek iestatīta pirms lapas zīmēšanas, lai tā nemirgo ===== -->
+  <script>
+    (function () {
+      var theme = null;
+      try { theme = localStorage.getItem("vv-theme"); } catch (e) { /* nav pieejams */ }
+      if (theme !== "light") {
+        theme = "dark";  /* noklusējumā tumšais režīms */
+      }
+      document.documentElement.setAttribute("data-bs-theme", theme);
+    })();
+  </script>
+
   <!-- ===== Stili: Bootstrap, ikonas, mūsu SCSS (kompilēts) ===== -->
   <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.min.css">
@@ -73,6 +85,11 @@
           <li class="nav-item"><a class="nav-link" href="par-mums.html">Par mums</a></li>
           <li class="nav-item"><a class="nav-link" href="kontakti.html">Kontakti</a></li>
         </ul>
+        <!-- Tumšā / gaišā režīma pārslēgšana (js/main.js) -->
+        <button type="button" class="btn btn-outline-light theme-toggle ms-lg-3 mb-2 mb-lg-0" id="themeToggle"
+                aria-label="Ieslēgt gaišo režīmu" aria-pressed="true" title="Gaišais režīms">
+          <i class="bi bi-sun" aria-hidden="true"></i>
+        </button>
       </div>
     </div>
   </nav>

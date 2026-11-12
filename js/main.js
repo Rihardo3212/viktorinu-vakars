@@ -60,6 +60,32 @@ document.addEventListener("DOMContentLoaded", () => {
     el.textContent = new Date().getFullYear();
   });
 
+  /* Tumšā režīma pārslēgšana. Izvēle tiek saglabāta localStorage,
+     un sākuma vērtību jau iestata skripts lapas <head> daļā. */
+  const toggle = document.getElementById("themeToggle");
+  if (toggle) {
+    const root = document.documentElement;
+    const icon = toggle.querySelector(".bi");
+    const update = () => {
+      const dark = root.getAttribute("data-bs-theme") === "dark";
+      icon.className = dark ? "bi bi-sun" : "bi bi-moon-stars";
+      toggle.setAttribute("aria-label", dark ? "Ieslēgt gaišo režīmu" : "Ieslēgt tumšo režīmu");
+      toggle.title = dark ? "Gaišais režīms" : "Tumšais režīms";
+      toggle.setAttribute("aria-pressed", String(dark));
+    };
+    toggle.addEventListener("click", () => {
+      const next = root.getAttribute("data-bs-theme") === "dark" ? "light" : "dark";
+      root.setAttribute("data-bs-theme", next);
+      try {
+        localStorage.setItem("vv-theme", next);
+      } catch (err) {
+        /* ja localStorage nav pieejams, režīms vienkārši netiek atcerēts */
+      }
+      update();
+    });
+    update();
+  }
+
   /* Galerijas logs: uzspiežot uz attēla, to parāda lielāku */
   const galleryModal = document.getElementById("galleryModal");
   if (galleryModal) {

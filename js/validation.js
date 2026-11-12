@@ -33,6 +33,21 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
+    /* ---------- Vērtējums: iekrāso zvaigznes līdz izvēlētajai ---------- */
+    const ratingBox = form.querySelector("[data-rating]");
+    if (ratingBox) {
+      const paint = () => {
+        const checked = ratingBox.querySelector("input:checked");
+        const value = checked ? Number(checked.value) : 0;
+        ratingBox.querySelectorAll("input").forEach((input) => {
+          const label = ratingBox.querySelector(`label[for="${input.id}"]`);
+          label.classList.toggle("is-filled", Number(input.value) <= value);
+        });
+      };
+      ratingBox.addEventListener("change", paint);
+      form.addEventListener("reset", () => setTimeout(paint, 0));
+    }
+
     /* ---------- Rakstzīmju skaitītājs teksta laukam ---------- */
     form.querySelectorAll("textarea[data-counter]").forEach((area) => {
       const counter = document.getElementById(area.dataset.counter);

@@ -122,8 +122,8 @@
 }
 
 .team-score {
-  background: $white;
-  color: $navy;
+  background: var(--vv-surface);
+  color: var(--vv-heading);
   border-radius: $radius;
   padding: 0.75rem 1rem;
   text-align: center;
@@ -250,12 +250,12 @@
     font-family: $font-heading;
     font-weight: 700;
     font-size: 1.1rem;
-    color: $navy;
+    color: var(--vv-heading);
   }
 }
 
 .editor-row {
-  border-top: 1px dashed rgba($navy, 0.15);
+  border-top: 1px dashed var(--vv-border);
   padding-top: 0.75rem;
   margin-top: 0.75rem;
 }

@@ -23,9 +23,9 @@
 
 // Kartītes pamatstils: balts fons, noapaļoti stūri, ēna.
 @mixin card-base {
-  background: $white;
+  background: var(--vv-surface);
   border-radius: $radius;
-  box-shadow: $shadow;
+  box-shadow: var(--vv-shadow);
   border: 0;
 }
 
