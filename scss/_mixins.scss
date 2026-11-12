@@ -1,0 +1,41 @@
+// =========================================================
+// _mixins.scss
+// Atkārtoti izmantojami SCSS mixini.
+// =========================================================
+
+@use "sass:map";
+@use "variables" as *;
+
+// Media query no norādītā breakpointa uz augšu.
+// Piemērs: @include up(md) { ... }
+@mixin up($size) {
+  @media (min-width: map.get($breakpoints, $size)) {
+    @content;
+  }
+}
+
+// Media query līdz norādītajam breakpointam (mazākiem ekrāniem).
+@mixin down($size) {
+  @media (max-width: (map.get($breakpoints, $size) - 0.02px)) {
+    @content;
+  }
+}
+
+// Kartītes pamatstils: balts fons, noapaļoti stūri, ēna.
+@mixin card-base {
+  background: $white;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  border: 0;
+}
+
+// Pacelšanās efekts, uzbraucot ar peli.
+@mixin hover-lift {
+  transition: transform $transition, box-shadow $transition;
+
+  &:hover,
+  &:focus-within {
+    transform: translateY(-4px);
+    box-shadow: 0 1rem 2rem rgba(11, 31, 77, 0.18);
+  }
+}

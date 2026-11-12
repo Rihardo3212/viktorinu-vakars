@@ -1,0 +1,90 @@
+// =========================================================
+// _base.scss
+// Pamata stili: fons, teksts, virsraksti, saites.
+// =========================================================
+
+@use "variables" as *;
+@use "mixins" as *;
+
+body {
+  font-family: $font-body;
+  background-color: $cream;
+  color: $ink;
+  line-height: 1.65;
+  // Lai kājene vienmēr būtu lapas apakšā arī īsām lapām
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+h1, h2, h3, h4, h5,
+.h1, .h2, .h3, .h4, .h5 {
+  font-family: $font-heading;
+  font-weight: 700;
+  color: $navy;
+  line-height: 1.25;
+}
+
+a {
+  color: $navy-light;
+  text-underline-offset: 3px;
+
+  &:hover {
+    color: $navy;
+  }
+}
+
+// Redzams fokusa rāmis, lietojot tastatūru (pieejamība)
+:focus-visible {
+  outline: 3px solid $gold;
+  outline-offset: 2px;
+}
+
+// Sekundārais teksts ar pietiekamu kontrastu
+.text-soft {
+  color: $muted;
+}
+
+// Sadaļu atstarpes
+.section {
+  padding: 3rem 0;
+
+  @include up(lg) {
+    padding: 4.5rem 0;
+  }
+}
+
+.section-alt {
+  background: $white;
+}
+
+.section-title {
+  margin-bottom: 0.5rem;
+}
+
+.section-lead {
+  color: $muted;
+  max-width: 42rem;
+  margin-bottom: 2rem;
+}
+
+// Saite "pāriet uz saturu" ekrāna lasītājiem un tastatūrai
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0.5rem;
+  z-index: 2000;
+  background: $gold;
+  color: $navy;
+  padding: 0.5rem 1rem;
+  border-radius: $radius;
+  font-weight: 700;
+
+  &:focus {
+    left: 0.5rem;
+  }
+}

@@ -1,0 +1,137 @@
+// =========================================================
+// _layout.scss
+// Galvene ar navigāciju, lapu virsraksta josla, kājene.
+// =========================================================
+
+@use "variables" as *;
+@use "mixins" as *;
+
+/* ---------- Galvene un navigācija ---------- */
+.site-nav {
+  background-color: $navy;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: $font-heading;
+    font-weight: 700;
+    color: $white;
+
+    img {
+      width: 40px;
+      height: 40px;
+    }
+
+    span {
+      color: $gold;
+    }
+  }
+
+  .nav-link {
+    color: rgba($white, 0.88);
+    font-weight: 600;
+
+    &:hover,
+    &:focus {
+      color: $gold;
+    }
+
+    &.active {
+      color: $gold;
+    }
+  }
+
+  .dropdown-menu {
+    border: 0;
+    border-radius: $radius;
+    box-shadow: $shadow;
+  }
+
+  .dropdown-item.active,
+  .dropdown-item:active {
+    background-color: $navy;
+    color: $gold;
+  }
+
+  // Mobilajā izvēlnē atstarpe starp saitēm
+  @include down(lg) {
+    .navbar-nav {
+      padding-top: 0.75rem;
+    }
+  }
+}
+
+/* ---------- Lapas virsraksta josla (visām lapām, izņemot sākumlapu) ---------- */
+.page-hero {
+  background: linear-gradient(135deg, $navy 0%, $navy-light 100%);
+  color: $white;
+  padding: 2.5rem 0 2rem;
+
+  h1 {
+    color: $white;
+    margin-bottom: 0.5rem;
+  }
+
+  .lead {
+    color: rgba($white, 0.9);
+    max-width: 44rem;
+    margin-bottom: 0;
+  }
+
+  // Ceļa norāde (breadcrumb) uz tumša fona
+  .breadcrumb {
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+
+    a {
+      color: $gold;
+    }
+
+    .breadcrumb-item.active,
+    .breadcrumb-item + .breadcrumb-item::before {
+      color: rgba($white, 0.8);
+    }
+  }
+}
+
+/* ---------- Kājene ---------- */
+.site-footer {
+  background-color: $navy;
+  color: rgba($white, 0.85);
+  padding: 2.5rem 0 1.5rem;
+  margin-top: auto;
+
+  h2 {
+    color: $gold;
+    font-size: 1.05rem;
+  }
+
+  a {
+    color: rgba($white, 0.85);
+    text-decoration: none;
+
+    &:hover {
+      color: $gold;
+      text-decoration: underline;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-bottom: 0.35rem;
+    }
+  }
+
+  .footer-note {
+    border-top: 1px solid rgba($white, 0.2);
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    font-size: 0.875rem;
+  }
+}

@@ -1,0 +1,272 @@
+// =========================================================
+// _game.scss
+// Spēles laukums, punktu tabula, jautājuma logs, redaktors.
+// =========================================================
+
+@use "sass:color";
+@use "variables" as *;
+@use "mixins" as *;
+
+/* ---------- Spēles lapas fons ---------- */
+.game-page {
+  background: $navy;
+  color: $white;
+  padding: 1.5rem 0 2.5rem;
+
+  h1 {
+    color: $white;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+  }
+
+  .text-soft {
+    color: rgba($white, 0.8);
+  }
+}
+
+// Rīku josla virs laukuma
+.game-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+/* ---------- Laukums: 5 kolonnas ---------- */
+.board {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.35rem;
+
+  @include up(md) {
+    gap: 0.6rem;
+  }
+}
+
+// Kategorijas nosaukums kolonnas augšā
+.board-cat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.5rem;
+  padding: 0.4rem;
+  background: $navy-light;
+  border-bottom: 3px solid $gold;
+  border-radius: 0.4rem;
+  text-align: center;
+  font-family: $font-heading;
+  font-weight: 700;
+  // Telefonā burti mazāki un bez lielajiem burtiem, lai vārdi nesalūztu
+  font-size: clamp(0.55rem, 2.6vw, 0.7rem);
+  hyphens: auto;
+  overflow-wrap: break-word;
+
+  @include up(md) {
+    min-height: 4rem;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+}
+
+// Viena jautājuma rūtiņa
+.board-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 3;
+  background: $navy-light;
+  border: 2px solid color.adjust($navy-light, $lightness: 10%);
+  border-radius: 0.4rem;
+  color: $gold;
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform $transition, background-color $transition;
+
+  // Lielākā ekrānā rūtiņu augstums pielāgojas loga augstumam,
+  // lai viss laukums un punkti būtu redzami bez ritināšanas
+  @include up(md) {
+    aspect-ratio: auto;
+    height: 8.5vh;
+    min-height: 3.5rem;
+    max-height: 7.5rem;
+    font-size: 2rem;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background: color.adjust($navy-light, $lightness: 8%);
+    transform: scale(1.03);
+  }
+
+  // Jau atvērta rūtiņa
+  &.used {
+    background: $used-cell;
+    border-color: $used-cell;
+    color: rgba($white, 0.55);
+    cursor: default;
+    transform: none;
+    text-decoration: line-through;
+  }
+}
+
+/* ---------- Punktu tabula ---------- */
+.scoreboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+
+.team-score {
+  background: $white;
+  color: $navy;
+  border-radius: $radius;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  border-top: 5px solid $gold;
+
+  .team-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+
+  .team-points {
+    font-family: $font-heading;
+    font-size: 1.75rem;
+    font-weight: 700;
+  }
+
+  .team-points.negative {
+    color: $danger;
+  }
+
+  // Komanda, kurai tikko piešķirti punkti
+  &.flash {
+    animation: score-flash 0.6s ease-in-out;
+  }
+}
+
+@keyframes score-flash {
+  50% {
+    transform: scale(1.08);
+    background: color.adjust($gold, $lightness: 30%);
+  }
+}
+
+/* ---------- Jautājuma logs ---------- */
+.question-modal {
+  .modal-content {
+    background: $navy;
+    color: $white;
+    border: 3px solid $gold;
+    border-radius: $radius-lg;
+  }
+
+  .modal-header {
+    border-bottom-color: rgba($white, 0.2);
+  }
+
+  .modal-title {
+    color: $gold;
+  }
+
+  .question-text {
+    font-family: $font-heading;
+    font-size: clamp(1.25rem, 3.5vw, 2.25rem);
+    text-align: center;
+    padding: 1.5rem 0.5rem;
+  }
+
+  .answer-text {
+    color: $gold;
+    font-weight: 700;
+    font-size: clamp(1.1rem, 3vw, 1.75rem);
+    text-align: center;
+  }
+
+  .double-badge {
+    display: inline-block;
+    background: $gold;
+    color: $navy;
+    border-radius: 999px;
+    padding: 0.25rem 0.75rem;
+    font-weight: 700;
+  }
+
+  .progress {
+    height: 0.6rem;
+    background: rgba($white, 0.2);
+  }
+
+  .progress-bar {
+    width: 100%;
+    background: $gold;
+    transition: width 1s linear;
+  }
+
+  .modal-footer {
+    border-top-color: rgba($white, 0.2);
+  }
+}
+
+/* ---------- Pilnekrāna režīms projektoram ---------- */
+// Klasi "game-fullscreen" pievieno js/game.js, kad lapa ir pilnekrānā
+.game-fullscreen {
+  background: $navy;
+
+  // Pilnekrānā paslēpj galveni, kājeni un paziņojumu
+  .site-nav,
+  .site-footer,
+  .skip-link,
+  #defaultNotice {
+    display: none !important;
+  }
+
+  .game-page {
+    min-height: 100vh;
+    padding: 1.5rem 0;
+  }
+
+  // Projektorā laukums var aizņemt vairāk vietas
+  @include up(md) {
+    .board-cell {
+      height: 11vh;
+      max-height: none;
+    }
+  }
+}
+
+/* ---------- Savas spēles redaktors ---------- */
+.editor-category {
+  @include card-base;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+
+  legend {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: $navy;
+  }
+}
+
+.editor-row {
+  border-top: 1px dashed rgba($navy, 0.15);
+  padding-top: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.points-tag {
+  display: inline-block;
+  min-width: 3.5rem;
+  text-align: center;
+  background: $navy;
+  color: $gold;
+  border-radius: 0.4rem;
+  font-weight: 700;
+  padding: 0.35rem 0.5rem;
+}

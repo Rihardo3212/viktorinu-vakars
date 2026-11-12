@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="lv">
+<!--
+  galerija.html
+  Attēlu galerija ar palielināšanu Bootstrap logā (js/main.js).
+  Projekts: "Viktorīnu vakars", kursa darbs "Web sistēmu izstrādes projekts".
+-->
+<head>
+  <!-- ===== Meta informācija ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ilustrācijas no viktorīnu pasākumiem: uzņēmumi, dzimšanas dienas, skolas un ģimenes svētki.">
+  <title>Galerija | Viktorīnu vakars</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+
+  <!-- ===== Fonti (Google Fonts) ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&amp;family=Poppins:wght@600;700&amp;display=swap">
+
+  <!-- ===== Stili: Bootstrap, ikonas, mūsu SCSS (kompilēts) ===== -->
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#saturs">Pāriet uz saturu</a>
+
+  <!-- ===== Galvene un navigācija (vienāda visās lapās) ===== -->
+  <nav class="navbar navbar-expand-lg navbar-dark site-nav sticky-top" aria-label="Galvenā izvēlne">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="img/logo.svg" alt="" width="40" height="40">
+        Viktorīnu <span>vakars</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Atvērt izvēlni">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Sākums</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="spelet.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Spēlēt</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="spelet.html">Sākt jaunu spēli</a></li>
+              <li><a class="dropdown-item" href="spele.html">Spēles laukums</a></li>
+              <li><a class="dropdown-item" href="rezultati.html">Rezultāti</a></li>
+              <li><a class="dropdown-item" href="izveidot.html">Izveido savu spēli</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="noteikumi.html">Kā spēlēt</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="temas.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tēmu krājumi</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="temas.html">Visi krājumi</a></li>
+              <li><a class="dropdown-item" href="tema-latvija.html">Latvija</a></li>
+              <li><a class="dropdown-item" href="tema-sports.html">Sports</a></li>
+              <li><a class="dropdown-item" href="tema-kino-muzika.html">Kino un mūzika</a></li>
+              <li><a class="dropdown-item" href="tema-pasaule.html">Pasaule</a></li>
+              <li><a class="dropdown-item" href="tema-zinatne.html">Zinātne un tehnoloģijas</a></li>
+              <li><a class="dropdown-item" href="tema-ediens.html">Ēdiens un dzērieni</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="pasakumiem.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pasākumiem</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="pasakumiem.html">Pakalpojums un cenas</a></li>
+              <li><a class="dropdown-item" href="pieteikums.html">Pieteikums</a></li>
+              <li><a class="dropdown-item active" aria-current="page" href="galerija.html">Galerija</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="par-mums.html">Par mums</a></li>
+          <li class="nav-item"><a class="nav-link" href="kontakti.html">Kontakti</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="saturs">
+    <!-- ===== Lapas virsraksta josla ===== -->
+    <header class="page-hero">
+      <div class="container">
+        <nav aria-label="Ceļa norāde">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Sākums</a></li><li class="breadcrumb-item"><a href="pasakumiem.html">Pasākumiem</a></li><li class="breadcrumb-item active" aria-current="page">Galerija</li>
+          </ol>
+        </nav>
+        <h1>Galerija</h1>
+        <p class="lead">Šādi izskatās viktorīna dažādos pasākumos. Uzspied uz attēla, lai to palielinātu.</p>
+      </div>
+    </header>
+    <!-- ===== Attēlu režģis ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-sm-6 col-lg-4">
+            <figure class="gallery-item">
+              <button type="button" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="img/galerija/1.svg" data-caption="Uzņēmuma komandas pasākums Jelgavā">
+                <img src="img/galerija/1.svg" width="800" height="600" alt="Uzņēmuma komandas pasākums Jelgavā" loading="lazy">
+              </button>
+              <figcaption>Uzņēmuma komandas pasākums Jelgavā</figcaption>
+            </figure>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <figure class="gallery-item">
+              <button type="button" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="img/galerija/2.svg" data-caption="Dzimšanas dienas ballīte">
+                <img src="img/galerija/2.svg" width="800" height="600" alt="Dzimšanas dienas ballīte" loading="lazy">
+              </button>
+              <figcaption>Dzimšanas dienas ballīte</figcaption>
+            </figure>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <figure class="gallery-item">
+              <button type="button" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="img/galerija/3.svg" data-caption="Viktorīna skolas atkārtošanas stundā">
+                <img src="img/galerija/3.svg" width="800" height="600" alt="Viktorīna skolas atkārtošanas stundā" loading="lazy">
+              </button>
+              <figcaption>Viktorīna skolas atkārtošanas stundā</figcaption>
+            </figure>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <figure class="gallery-item">
+              <button type="button" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="img/galerija/4.svg" data-caption="Studentu viktorīnu vakars">
+                <img src="img/galerija/4.svg" width="800" height="600" alt="Studentu viktorīnu vakars" loading="lazy">
+              </button>
+              <figcaption>Studentu viktorīnu vakars</figcaption>
+            </figure>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <figure class="gallery-item">
+              <button type="button" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="img/galerija/5.svg" data-caption="Ģimenes svētki laukos">
+                <img src="img/galerija/5.svg" width="800" height="600" alt="Ģimenes svētki laukos" loading="lazy">
+              </button>
+              <figcaption>Ģimenes svētki laukos</figcaption>
+            </figure>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            <figure class="gallery-item">
+              <button type="button" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="img/galerija/6.svg" data-caption="Spēle kāzu viesiem">
+                <img src="img/galerija/6.svg" width="800" height="600" alt="Spēle kāzu viesiem" loading="lazy">
+              </button>
+              <figcaption>Spēle kāzu viesiem</figcaption>
+            </figure>
+          </div>
+        </div>
+        <p class="text-soft small mt-4 mb-0">Attēli ir ilustrācijas, kas zīmētas šai vietnei.</p>
+      </div>
+    </section>
+
+    <!-- ===== Palielinātā attēla logs ===== -->
+    <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryTitle">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title h5" id="galleryTitle">Attēls</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Aizvērt"></button>
+          </div>
+          <div class="modal-body p-0">
+            <img src="img/galerija/1.svg" class="w-100 h-auto" width="800" height="600" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== Kājene ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-5">
+          <h2>Viktorīnu vakars</h2>
+          <p>Jautājumu un atbilžu spēle pasākumiem. Spēlē uz lielā ekrāna, latviešu valodā un bez reģistrācijas.</p>
+        </div>
+        <div class="col-6 col-md-3">
+          <h2>Lapas</h2>
+          <ul>
+            <li><a href="spelet.html">Sākt spēli</a></li>
+            <li><a href="noteikumi.html">Kā spēlēt</a></li>
+            <li><a href="temas.html">Tēmu krājumi</a></li>
+            <li><a href="pasakumiem.html">Pasākumiem</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-4">
+          <h2>Kontakti</h2>
+          <ul>
+            <li><i class="bi bi-geo-alt" aria-hidden="true"></i> Jelgava, Latvija</li>
+            <li><i class="bi bi-envelope" aria-hidden="true"></i> <a href="mailto:info@viktorinuvakars.lv">info@viktorinuvakars.lv</a></li>
+            <li><a href="kontakti.html">Atsauksmju forma</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-note mb-0">
+        &copy; <span data-year>2026</span> R. S. Mācību projekts kursā "Web sistēmu izstrādes projekts" (LBTU).
+        Pakalpojums, cenas un kontaktinformācija ir izdomāti.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ===== Skripti: Bootstrap, kopējās funkcijas, lapas skripti ===== -->
+  <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="lv">
+<!--
+  spele.html
+  Spēles laukums: 5x5 rūtiņas, jautājuma logs, taimeris un punktu tabula (js/game.js).
+  Projekts: "Viktorīnu vakars", kursa darbs "Web sistēmu izstrādes projekts".
+-->
+<head>
+  <!-- ===== Meta informācija ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Jeopardy tipa spēles laukums ar 25 jautājumiem, taimeri un punktu tabulu.">
+  <title>Spēles laukums | Viktorīnu vakars</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+
+  <!-- ===== Fonti (Google Fonts) ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&amp;family=Poppins:wght@600;700&amp;display=swap">
+
+  <!-- ===== Stili: Bootstrap, ikonas, mūsu SCSS (kompilēts) ===== -->
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#saturs">Pāriet uz saturu</a>
+
+  <!-- ===== Galvene un navigācija (vienāda visās lapās) ===== -->
+  <nav class="navbar navbar-expand-lg navbar-dark site-nav sticky-top" aria-label="Galvenā izvēlne">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="img/logo.svg" alt="" width="40" height="40">
+        Viktorīnu <span>vakars</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Atvērt izvēlni">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Sākums</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="spelet.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Spēlēt</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="spelet.html">Sākt jaunu spēli</a></li>
+              <li><a class="dropdown-item active" aria-current="page" href="spele.html">Spēles laukums</a></li>
+              <li><a class="dropdown-item" href="rezultati.html">Rezultāti</a></li>
+              <li><a class="dropdown-item" href="izveidot.html">Izveido savu spēli</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="noteikumi.html">Kā spēlēt</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="temas.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tēmu krājumi</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="temas.html">Visi krājumi</a></li>
+              <li><a class="dropdown-item" href="tema-latvija.html">Latvija</a></li>
+              <li><a class="dropdown-item" href="tema-sports.html">Sports</a></li>
+              <li><a class="dropdown-item" href="tema-kino-muzika.html">Kino un mūzika</a></li>
+              <li><a class="dropdown-item" href="tema-pasaule.html">Pasaule</a></li>
+              <li><a class="dropdown-item" href="tema-zinatne.html">Zinātne un tehnoloģijas</a></li>
+              <li><a class="dropdown-item" href="tema-ediens.html">Ēdiens un dzērieni</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="pasakumiem.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pasākumiem</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="pasakumiem.html">Pakalpojums un cenas</a></li>
+              <li><a class="dropdown-item" href="pieteikums.html">Pieteikums</a></li>
+              <li><a class="dropdown-item" href="galerija.html">Galerija</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="par-mums.html">Par mums</a></li>
+          <li class="nav-item"><a class="nav-link" href="kontakti.html">Kontakti</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="saturs">
+    <!-- ===== Spēles zona (šo daļu var atvērt pilnekrānā) ===== -->
+    <section class="game-page" id="gameSection" aria-labelledby="gameTitle">
+      <div class="container">
+        <div class="game-toolbar">
+          <div>
+            <h1 id="gameTitle" class="mb-0">Spēle</h1>
+            <p class="text-soft mb-0">Izvēlies kategoriju un punktu vērtību.</p>
+          </div>
+          <div class="d-flex flex-wrap gap-2">
+            <button type="button" class="btn btn-gold" id="fullscreenBtn"><i class="bi bi-arrows-fullscreen" aria-hidden="true"></i> <span>Pilnekrāns</span></button>
+            <button type="button" class="btn btn-outline-light" id="restartBtn"><i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i> Sākt no jauna</button>
+            <a class="btn btn-outline-light" href="spelet.html"><i class="bi bi-gear" aria-hidden="true"></i> Iestatījumi</a>
+          </div>
+        </div>
+
+        <!-- Paziņojums, ja spēle nav iestatīta -->
+        <div class="alert alert-warning d-none" id="defaultNotice" role="status">
+          Spēle sākta ar noklusējuma iestatījumiem (krājums "Latvija", 2 komandas).
+          <a class="alert-link" href="spelet.html">Izvēlēties citu krājumu un komandas</a>.
+        </div>
+
+        <!-- Laukums: rūtiņas ievieto JavaScript -->
+        <div class="board" id="board" role="group" aria-label="Spēles laukums"></div>
+
+        <!-- Punktu tabula -->
+        <h2 class="visually-hidden">Punkti</h2>
+        <div class="scoreboard" id="scoreboard" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ===== Jautājuma logs ===== -->
+    <div class="modal fade question-modal" id="questionModal" tabindex="-1" aria-labelledby="questionTitle"
+         data-bs-backdrop="static">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title h5" id="questionTitle">Jautājums</h2>
+            <span class="double-badge ms-3 d-none">Dubultā likme x2</span>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Aizvērt"></button>
+          </div>
+          <div class="modal-body">
+            <div id="timerWrap">
+              <div class="d-flex justify-content-between small mb-1">
+                <span>Laiks</span><span id="timerLabel">30 s</span>
+              </div>
+              <div class="progress" role="progressbar" aria-label="Atlikušais laiks" aria-valuemin="0" aria-valuemax="60" aria-valuenow="30">
+                <div class="progress-bar"></div>
+              </div>
+            </div>
+            <p class="question-text"></p>
+            <p class="answer-text d-none"></p>
+          </div>
+          <div class="modal-footer d-block">
+            <button type="button" class="btn btn-gold btn-lg" id="revealBtn">Rādīt atbildi <small>(atstarpe)</small></button>
+            <div id="awardBox" class="d-none">
+              <p class="mb-2">Kura komanda atbildēja pareizi? Par nepareizu atbildi spied "−".</p>
+              <div id="awardButtons"></div>
+              <button type="button" class="btn btn-outline-light mt-2" data-bs-dismiss="modal">Neviens neatbildēja</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Uzvarētāja logs ===== -->
+    <div class="modal fade" id="winnerModal" tabindex="-1" aria-labelledby="winnerTitle">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title h4" id="winnerTitle"><i class="bi bi-trophy" aria-hidden="true"></i> Spēle beigusies!</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Aizvērt"></button>
+          </div>
+          <div class="modal-body">
+            <p class="mb-1">Uzvarētājs:</p>
+            <p class="h3" id="winnerName"></p>
+            <table class="table mt-3">
+              <caption class="visually-hidden">Gala rezultāti</caption>
+              <thead><tr><th scope="col">Vieta</th><th scope="col">Komanda</th><th scope="col" class="text-end">Punkti</th></tr></thead>
+              <tbody id="winnerTable"></tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <a class="btn btn-outline-navy" href="rezultati.html">Visi rezultāti</a>
+            <button type="button" class="btn btn-gold" id="playAgainBtn">Spēlēt vēlreiz</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== Kājene ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-5">
+          <h2>Viktorīnu vakars</h2>
+          <p>Jautājumu un atbilžu spēle pasākumiem. Spēlē uz lielā ekrāna, latviešu valodā un bez reģistrācijas.</p>
+        </div>
+        <div class="col-6 col-md-3">
+          <h2>Lapas</h2>
+          <ul>
+            <li><a href="spelet.html">Sākt spēli</a></li>
+            <li><a href="noteikumi.html">Kā spēlēt</a></li>
+            <li><a href="temas.html">Tēmu krājumi</a></li>
+            <li><a href="pasakumiem.html">Pasākumiem</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-4">
+          <h2>Kontakti</h2>
+          <ul>
+            <li><i class="bi bi-geo-alt" aria-hidden="true"></i> Jelgava, Latvija</li>
+            <li><i class="bi bi-envelope" aria-hidden="true"></i> <a href="mailto:info@viktorinuvakars.lv">info@viktorinuvakars.lv</a></li>
+            <li><a href="kontakti.html">Atsauksmju forma</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-note mb-0">
+        &copy; <span data-year>2026</span> R. S. Mācību projekts kursā "Web sistēmu izstrādes projekts" (LBTU).
+        Pakalpojums, cenas un kontaktinformācija ir izdomāti.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ===== Skripti: Bootstrap, kopējās funkcijas, lapas skripti ===== -->
+  <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="data/question-sets.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>

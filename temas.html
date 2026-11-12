@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="lv">
+<!--
+  temas.html
+  Tēmu krājumu katalogs ar kartītēm un salīdzinājuma tabulu.
+  Projekts: "Viktorīnu vakars", kursa darbs "Web sistēmu izstrādes projekts".
+-->
+<head>
+  <!-- ===== Meta informācija ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Seši gatavi jautājumu krājumi spēlei: Latvija, Sports, Kino un mūzika, Pasaule, Zinātne un tehnoloģijas, Ēdiens un dzērieni, kā arī iespēja izveidot savu.">
+  <title>Tēmu krājumi | Viktorīnu vakars</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+
+  <!-- ===== Fonti (Google Fonts) ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&amp;family=Poppins:wght@600;700&amp;display=swap">
+
+  <!-- ===== Stili: Bootstrap, ikonas, mūsu SCSS (kompilēts) ===== -->
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#saturs">Pāriet uz saturu</a>
+
+  <!-- ===== Galvene un navigācija (vienāda visās lapās) ===== -->
+  <nav class="navbar navbar-expand-lg navbar-dark site-nav sticky-top" aria-label="Galvenā izvēlne">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="img/logo.svg" alt="" width="40" height="40">
+        Viktorīnu <span>vakars</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Atvērt izvēlni">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Sākums</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="spelet.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Spēlēt</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="spelet.html">Sākt jaunu spēli</a></li>
+              <li><a class="dropdown-item" href="spele.html">Spēles laukums</a></li>
+              <li><a class="dropdown-item" href="rezultati.html">Rezultāti</a></li>
+              <li><a class="dropdown-item" href="izveidot.html">Izveido savu spēli</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="noteikumi.html">Kā spēlēt</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="temas.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tēmu krājumi</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item active" aria-current="page" href="temas.html">Visi krājumi</a></li>
+              <li><a class="dropdown-item" href="tema-latvija.html">Latvija</a></li>
+              <li><a class="dropdown-item" href="tema-sports.html">Sports</a></li>
+              <li><a class="dropdown-item" href="tema-kino-muzika.html">Kino un mūzika</a></li>
+              <li><a class="dropdown-item" href="tema-pasaule.html">Pasaule</a></li>
+              <li><a class="dropdown-item" href="tema-zinatne.html">Zinātne un tehnoloģijas</a></li>
+              <li><a class="dropdown-item" href="tema-ediens.html">Ēdiens un dzērieni</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="pasakumiem.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pasākumiem</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="pasakumiem.html">Pakalpojums un cenas</a></li>
+              <li><a class="dropdown-item" href="pieteikums.html">Pieteikums</a></li>
+              <li><a class="dropdown-item" href="galerija.html">Galerija</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="par-mums.html">Par mums</a></li>
+          <li class="nav-item"><a class="nav-link" href="kontakti.html">Kontakti</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="saturs">
+    <!-- ===== Lapas virsraksta josla ===== -->
+    <header class="page-hero">
+      <div class="container">
+        <nav aria-label="Ceļa norāde">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Sākums</a></li><li class="breadcrumb-item active" aria-current="page">Tēmu krājumi</li>
+          </ol>
+        </nav>
+        <h1>Tēmu krājumi</h1>
+        <p class="lead">Izvēlies gatavu krājumu vai izveido savu. Katrā krājumā ir 5 kategorijas un 25 jautājumi.</p>
+      </div>
+    </header>
+    <!-- ===== Krājumu kartītes ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <article class="set-card">
+              <img src="img/tema-latvija.svg" width="800" height="450" alt="Latvijas karogs vējā">
+              <div class="card-body">
+                <span class="badge-level">Viegls</span>
+                <h3 class="h5 mt-2">Latvija</h3>
+                <p>Vēsture, daba, kultūra un tradīcijas.</p>
+                <a class="btn btn-outline-navy" href="tema-latvija.html">Apskatīt</a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <article class="set-card">
+              <img src="img/tema-sports.svg" width="800" height="450" alt="Futbola bumba un kauss">
+              <div class="card-body">
+                <span class="badge-level">Vidējs</span>
+                <h3 class="h5 mt-2">Sports</h3>
+                <p>Futbols, basketbols, hokejs un olimpiskās spēles.</p>
+                <a class="btn btn-outline-navy" href="tema-sports.html">Apskatīt</a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <article class="set-card">
+              <img src="img/tema-kino-muzika.svg" width="800" height="450" alt="Filmas rullis un nošu zīme">
+              <div class="card-body">
+                <span class="badge-level">Vidējs</span>
+                <h3 class="h5 mt-2">Kino un mūzika</h3>
+                <p>Filmas, seriāli, animācija un dziesmas.</p>
+                <a class="btn btn-outline-navy" href="tema-kino-muzika.html">Apskatīt</a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <article class="set-card">
+              <img src="img/tema-pasaule.svg" width="800" height="450" alt="Zemeslode ar lidojuma maršrutu">
+              <div class="card-body">
+                <span class="badge-level">Vidējs</span>
+                <h3 class="h5 mt-2">Pasaule</h3>
+                <p>Galvaspilsētas, karogi, slavenas vietas un valodas.</p>
+                <a class="btn btn-outline-navy" href="tema-pasaule.html">Apskatīt</a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <article class="set-card">
+              <img src="img/tema-zinatne.svg" width="800" height="450" alt="Laboratorijas kolba un raķete">
+              <div class="card-body">
+                <span class="badge-level">Vidējs</span>
+                <h3 class="h5 mt-2">Zinātne un tehnoloģijas</h3>
+                <p>Kosmoss, ķīmija, fizika, datori un izgudrojumi.</p>
+                <a class="btn btn-outline-navy" href="tema-zinatne.html">Apskatīt</a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <article class="set-card">
+              <img src="img/tema-ediens.svg" width="800" height="450" alt="Šķīvis ar ēdienu, galda piederumi un krūze">
+              <div class="card-body">
+                <span class="badge-level">Viegls</span>
+                <h3 class="h5 mt-2">Ēdiens un dzērieni</h3>
+                <p>Latviešu un pasaules virtuve, dzērieni un saldumi.</p>
+                <a class="btn btn-outline-navy" href="tema-ediens.html">Apskatīt</a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <article class="set-card">
+              <img src="img/tema-mana.svg" width="800" height="450" alt="Lapa ar zīmuli">
+              <div class="card-body">
+                <span class="badge-level">Tavs</span>
+                <h3 class="h5 mt-2">Mana spēle</h3>
+                <p>Tavi jautājumi par jebkuru tēmu: klasi, darbu vai jubilāru.</p>
+                <a class="btn btn-outline-navy" href="izveidot.html">Izveidot</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Salīdzinājuma tabula ===== -->
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Krājumu salīdzinājums</h2>
+        <p class="section-lead">Tabula palīdz izvēlēties krājumu pēc auditorijas.</p>
+        <div class="table-responsive">
+          <table class="table table-striped table-quiz">
+            <caption class="visually-hidden">Jautājumu krājumu salīdzinājums</caption>
+            <thead>
+              <tr>
+                <th scope="col">Krājums</th>
+                <th scope="col">Kategorijas</th>
+                <th scope="col">Jautājumi</th>
+                <th scope="col">Grūtība</th>
+                <th scope="col">Kam der</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><a href="tema-latvija.html">Latvija</a></td><td>Vēsture, Ģeogrāfija, Kultūra, Daba, Tradīcijas</td><td>25</td><td>Viegls</td><td>Ģimenei, skolai, valsts svētkiem</td></tr>
+              <tr><td><a href="tema-sports.html">Sports</a></td><td>Futbols, Basketbols, Hokejs, Olimpiskās spēles, Dažādi</td><td>25</td><td>Vidējs</td><td>Draugiem, sporta klubiem</td></tr>
+              <tr><td><a href="tema-kino-muzika.html">Kino un mūzika</a></td><td>Filmas, Mūzika, Latvijas mūzika, Animācija, Seriāli</td><td>25</td><td>Vidējs</td><td>Ballītēm, uzņēmumu pasākumiem</td></tr>
+              <tr><td><a href="tema-pasaule.html">Pasaule</a></td><td>Galvaspilsētas, Ģeogrāfija, Karogi, Slavenas vietas, Valodas un valūtas</td><td>25</td><td>Vidējs</td><td>Draugiem, ceļotājiem, skolai</td></tr>
+              <tr><td><a href="tema-zinatne.html">Zinātne un tehnoloģijas</a></td><td>Kosmoss, Ķīmija, Fizika, Datori, Izgudrojumi</td><td>25</td><td>Vidējs</td><td>Skolai, IT uzņēmumiem</td></tr>
+              <tr><td><a href="tema-ediens.html">Ēdiens un dzērieni</a></td><td>Latviešu virtuve, Pasaules virtuves, Augļi un garšvielas, Dzērieni, Saldumi</td><td>25</td><td>Viegls</td><td>Ģimenei, ballītēm, kāzām</td></tr>
+              <tr><td><a href="izveidot.html">Mana spēle</a></td><td>Tavas izvēlētās</td><td>25</td><td>Pēc tavas izvēles</td><td>Jebkuram pasākumam</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Kājene ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-5">
+          <h2>Viktorīnu vakars</h2>
+          <p>Jautājumu un atbilžu spēle pasākumiem. Spēlē uz lielā ekrāna, latviešu valodā un bez reģistrācijas.</p>
+        </div>
+        <div class="col-6 col-md-3">
+          <h2>Lapas</h2>
+          <ul>
+            <li><a href="spelet.html">Sākt spēli</a></li>
+            <li><a href="noteikumi.html">Kā spēlēt</a></li>
+            <li><a href="temas.html">Tēmu krājumi</a></li>
+            <li><a href="pasakumiem.html">Pasākumiem</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-4">
+          <h2>Kontakti</h2>
+          <ul>
+            <li><i class="bi bi-geo-alt" aria-hidden="true"></i> Jelgava, Latvija</li>
+            <li><i class="bi bi-envelope" aria-hidden="true"></i> <a href="mailto:info@viktorinuvakars.lv">info@viktorinuvakars.lv</a></li>
+            <li><a href="kontakti.html">Atsauksmju forma</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-note mb-0">
+        &copy; <span data-year>2026</span> R. S. Mācību projekts kursā "Web sistēmu izstrādes projekts" (LBTU).
+        Pakalpojums, cenas un kontaktinformācija ir izdomāti.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ===== Skripti: Bootstrap, kopējās funkcijas, lapas skripti ===== -->
+  <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

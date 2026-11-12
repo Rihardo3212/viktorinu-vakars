@@ -1,0 +1,738 @@
+@charset "UTF-8";
+body {
+  font-family: "Nunito", "Segoe UI", Arial, sans-serif;
+  background-color: #f7f8fc;
+  color: #1d2333;
+  line-height: 1.65;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+h1, h2, h3, h4, h5,
+.h1, .h2, .h3, .h4, .h5 {
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+  font-weight: 700;
+  color: #0b1f4d;
+  line-height: 1.25;
+}
+
+a {
+  color: #16337a;
+  text-underline-offset: 3px;
+}
+a:hover {
+  color: #0b1f4d;
+}
+
+:focus-visible {
+  outline: 3px solid #f5c518;
+  outline-offset: 2px;
+}
+
+.text-soft {
+  color: #5a6275;
+}
+
+.section {
+  padding: 3rem 0;
+}
+@media (min-width: 992px) {
+  .section {
+    padding: 4.5rem 0;
+  }
+}
+
+.section-alt {
+  background: #ffffff;
+}
+
+.section-title {
+  margin-bottom: 0.5rem;
+}
+
+.section-lead {
+  color: #5a6275;
+  max-width: 42rem;
+  margin-bottom: 2rem;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0.5rem;
+  z-index: 2000;
+  background: #f5c518;
+  color: #0b1f4d;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+}
+.skip-link:focus {
+  left: 0.5rem;
+}
+
+/* ---------- Galvene un navigācija ---------- */
+.site-nav {
+  background-color: #0b1f4d;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.site-nav .navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+  font-weight: 700;
+  color: #ffffff;
+}
+.site-nav .navbar-brand img {
+  width: 40px;
+  height: 40px;
+}
+.site-nav .navbar-brand span {
+  color: #f5c518;
+}
+.site-nav .nav-link {
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 600;
+}
+.site-nav .nav-link:hover, .site-nav .nav-link:focus {
+  color: #f5c518;
+}
+.site-nav .nav-link.active {
+  color: #f5c518;
+}
+.site-nav .dropdown-menu {
+  border: 0;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(11, 31, 77, 0.12);
+}
+.site-nav .dropdown-item.active,
+.site-nav .dropdown-item:active {
+  background-color: #0b1f4d;
+  color: #f5c518;
+}
+@media (max-width: 991.98px) {
+  .site-nav .navbar-nav {
+    padding-top: 0.75rem;
+  }
+}
+
+/* ---------- Lapas virsraksta josla (visām lapām, izņemot sākumlapu) ---------- */
+.page-hero {
+  background: linear-gradient(135deg, #0b1f4d 0%, #16337a 100%);
+  color: #ffffff;
+  padding: 2.5rem 0 2rem;
+}
+.page-hero h1 {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+.page-hero .lead {
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 44rem;
+  margin-bottom: 0;
+}
+.page-hero .breadcrumb {
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+}
+.page-hero .breadcrumb a {
+  color: #f5c518;
+}
+.page-hero .breadcrumb .breadcrumb-item.active,
+.page-hero .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ---------- Kājene ---------- */
+.site-footer {
+  background-color: #0b1f4d;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 2.5rem 0 1.5rem;
+  margin-top: auto;
+}
+.site-footer h2 {
+  color: #f5c518;
+  font-size: 1.05rem;
+}
+.site-footer a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+}
+.site-footer a:hover {
+  color: #f5c518;
+  text-decoration: underline;
+}
+.site-footer ul {
+  list-style: none;
+  padding: 0;
+}
+.site-footer ul li {
+  margin-bottom: 0.35rem;
+}
+.site-footer .footer-note {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  font-size: 0.875rem;
+}
+
+/* ---------- Pogas ---------- */
+.btn-gold {
+  background-color: #f5c518;
+  border-color: #f5c518;
+  color: #0b1f4d;
+  font-weight: 700;
+}
+.btn-gold:hover, .btn-gold:focus {
+  background-color: #dbad09;
+  border-color: #dbad09;
+  color: #0b1f4d;
+}
+
+.btn-navy {
+  background-color: #0b1f4d;
+  border-color: #0b1f4d;
+  color: #ffffff;
+  font-weight: 700;
+}
+.btn-navy:hover, .btn-navy:focus {
+  background-color: #16337a;
+  border-color: #16337a;
+  color: #ffffff;
+}
+
+.btn-outline-navy {
+  border: 2px solid #0b1f4d;
+  color: #0b1f4d;
+  font-weight: 700;
+}
+.btn-outline-navy:hover, .btn-outline-navy:focus {
+  background-color: #0b1f4d;
+  color: #ffffff;
+}
+
+/* ---------- Sākumlapas lielā josla ---------- */
+.hero {
+  background: linear-gradient(135deg, #0b1f4d 0%, #16337a 100%);
+  color: #ffffff;
+  padding: 3.5rem 0;
+}
+@media (min-width: 992px) {
+  .hero {
+    padding: 5rem 0;
+  }
+}
+.hero h1 {
+  color: #ffffff;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+}
+.hero h1 span {
+  color: #f5c518;
+}
+.hero .lead {
+  color: rgba(255, 255, 255, 0.9);
+}
+.hero img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------- Soļi "Kā tas strādā" ---------- */
+.step {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(11, 31, 77, 0.12);
+  border: 0;
+  padding: 1.75rem;
+  height: 100%;
+}
+.step .step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: #f5c518;
+  color: #0b1f4d;
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+/* ---------- Tēmu krājumu kartītes ---------- */
+.set-card {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(11, 31, 77, 0.12);
+  border: 0;
+  overflow: hidden;
+  height: 100%;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.set-card:hover, .set-card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 1rem 2rem rgba(11, 31, 77, 0.18);
+}
+.set-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  background: #0b1f4d;
+}
+.set-card .card-body {
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.badge-level {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: rgba(11, 31, 77, 0.08);
+  color: #0b1f4d;
+}
+
+/* ---------- Ikonu kartītes ---------- */
+.feature {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(11, 31, 77, 0.12);
+  border: 0;
+  padding: 1.5rem;
+  height: 100%;
+}
+.feature .bi {
+  font-size: 2rem;
+  color: #16337a;
+}
+
+/* ---------- Atsauksmes ---------- */
+.testimonial {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(11, 31, 77, 0.12);
+  border: 0;
+  padding: 1.5rem;
+  height: 100%;
+  border-left: 5px solid #f5c518;
+}
+.testimonial blockquote {
+  margin-bottom: 0.75rem;
+  font-style: italic;
+}
+.testimonial figcaption {
+  color: #5a6275;
+  font-weight: 700;
+}
+
+/* ---------- Cenu paketes ---------- */
+.price-card {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(11, 31, 77, 0.12);
+  border: 0;
+  padding: 2rem 1.5rem;
+  height: 100%;
+  text-align: center;
+}
+.price-card .price {
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #0b1f4d;
+}
+.price-card.featured {
+  border: 3px solid #f5c518;
+}
+
+/* ---------- Tabulas ---------- */
+.table-quiz {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(11, 31, 77, 0.12);
+  border: 0;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+.table-quiz thead th {
+  background-color: #0b1f4d;
+  color: #ffffff;
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+  font-weight: 600;
+  border: 0;
+}
+.table-quiz td,
+.table-quiz th {
+  padding: 0.85rem 1rem;
+  vertical-align: middle;
+}
+
+/* ---------- Formas ---------- */
+.form-card {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(11, 31, 77, 0.12);
+  border: 0;
+  padding: 1.5rem;
+}
+@media (min-width: 768px) {
+  .form-card {
+    padding: 2rem 2.5rem;
+  }
+}
+
+.form-label {
+  font-weight: 700;
+}
+
+.team-count {
+  max-width: 14rem;
+}
+
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+  border-color: #16337a;
+  box-shadow: 0 0 0 0.25rem rgba(245, 197, 24, 0.45);
+}
+
+.invalid-feedback {
+  color: #b42318;
+  font-weight: 600;
+}
+
+/* ---------- Galerija ---------- */
+.gallery-item {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(11, 31, 77, 0.12);
+  border: 0;
+  overflow: hidden;
+  margin: 0;
+  height: 100%;
+}
+.gallery-item button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  transition: transform 0.2s ease-in-out;
+}
+.gallery-item button:hover img,
+.gallery-item button:focus img {
+  transform: scale(1.04);
+}
+.gallery-item figcaption {
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+}
+
+/* ---------- Karte ---------- */
+.map-frame {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(11, 31, 77, 0.12);
+  border: 0;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+@media (min-width: 992px) {
+  .map-frame {
+    aspect-ratio: auto;
+    height: 100%;
+    min-height: 380px;
+  }
+}
+.map-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+}
+.contact-list li {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.contact-list .bi {
+  font-size: 1.4rem;
+  color: #16337a;
+}
+
+/* ---------- BUJ akordeons ---------- */
+.accordion-button:not(.collapsed) {
+  background-color: rgba(245, 197, 24, 0.2);
+  color: #0b1f4d;
+}
+
+.accordion-button:focus {
+  box-shadow: 0 0 0 0.25rem rgba(245, 197, 24, 0.45);
+}
+
+/* ---------- Teksta un attēla bloks ---------- */
+.media-block img {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(11, 31, 77, 0.12);
+  border: 0;
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- Spēles lapas fons ---------- */
+.game-page {
+  background: #0b1f4d;
+  color: #ffffff;
+  padding: 1.5rem 0 2.5rem;
+}
+.game-page h1 {
+  color: #ffffff;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+}
+.game-page .text-soft {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.game-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+/* ---------- Laukums: 5 kolonnas ---------- */
+.board {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.35rem;
+}
+@media (min-width: 768px) {
+  .board {
+    gap: 0.6rem;
+  }
+}
+
+.board-cat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.5rem;
+  padding: 0.4rem;
+  background: #16337a;
+  border-bottom: 3px solid #f5c518;
+  border-radius: 0.4rem;
+  text-align: center;
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+  font-weight: 700;
+  font-size: clamp(0.55rem, 2.6vw, 0.7rem);
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+@media (min-width: 768px) {
+  .board-cat {
+    min-height: 4rem;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+}
+
+.board-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4/3;
+  background: #16337a;
+  border: 2px solid #1e45a5;
+  border-radius: 0.4rem;
+  color: #f5c518;
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+@media (min-width: 768px) {
+  .board-cell {
+    aspect-ratio: auto;
+    height: 8.5vh;
+    min-height: 3.5rem;
+    max-height: 7.5rem;
+    font-size: 2rem;
+  }
+}
+.board-cell:hover, .board-cell:focus-visible {
+  background: #1c419d;
+  transform: scale(1.03);
+}
+.board-cell.used {
+  background: #3b4a6b;
+  border-color: #3b4a6b;
+  color: rgba(255, 255, 255, 0.55);
+  cursor: default;
+  transform: none;
+  text-decoration: line-through;
+}
+
+/* ---------- Punktu tabula ---------- */
+.scoreboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+
+.team-score {
+  background: #ffffff;
+  color: #0b1f4d;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  border-top: 5px solid #f5c518;
+}
+.team-score .team-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.team-score .team-points {
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+.team-score .team-points.negative {
+  color: #b42318;
+}
+.team-score.flash {
+  animation: score-flash 0.6s ease-in-out;
+}
+
+@keyframes score-flash {
+  50% {
+    transform: scale(1.08);
+    background: #fbeaab;
+  }
+}
+/* ---------- Jautājuma logs ---------- */
+.question-modal .modal-content {
+  background: #0b1f4d;
+  color: #ffffff;
+  border: 3px solid #f5c518;
+  border-radius: 1.25rem;
+}
+.question-modal .modal-header {
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+.question-modal .modal-title {
+  color: #f5c518;
+}
+.question-modal .question-text {
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+  font-size: clamp(1.25rem, 3.5vw, 2.25rem);
+  text-align: center;
+  padding: 1.5rem 0.5rem;
+}
+.question-modal .answer-text {
+  color: #f5c518;
+  font-weight: 700;
+  font-size: clamp(1.1rem, 3vw, 1.75rem);
+  text-align: center;
+}
+.question-modal .double-badge {
+  display: inline-block;
+  background: #f5c518;
+  color: #0b1f4d;
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  font-weight: 700;
+}
+.question-modal .progress {
+  height: 0.6rem;
+  background: rgba(255, 255, 255, 0.2);
+}
+.question-modal .progress-bar {
+  width: 100%;
+  background: #f5c518;
+  transition: width 1s linear;
+}
+.question-modal .modal-footer {
+  border-top-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ---------- Pilnekrāna režīms projektoram ---------- */
+.game-fullscreen {
+  background: #0b1f4d;
+}
+.game-fullscreen .site-nav,
+.game-fullscreen .site-footer,
+.game-fullscreen .skip-link,
+.game-fullscreen #defaultNotice {
+  display: none !important;
+}
+.game-fullscreen .game-page {
+  min-height: 100vh;
+  padding: 1.5rem 0;
+}
+@media (min-width: 768px) {
+  .game-fullscreen .board-cell {
+    height: 11vh;
+    max-height: none;
+  }
+}
+
+/* ---------- Savas spēles redaktors ---------- */
+.editor-category {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(11, 31, 77, 0.12);
+  border: 0;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.editor-category legend {
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #0b1f4d;
+}
+
+.editor-row {
+  border-top: 1px dashed rgba(11, 31, 77, 0.15);
+  padding-top: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.points-tag {
+  display: inline-block;
+  min-width: 3.5rem;
+  text-align: center;
+  background: #0b1f4d;
+  color: #f5c518;
+  border-radius: 0.4rem;
+  font-weight: 700;
+  padding: 0.35rem 0.5rem;
+}

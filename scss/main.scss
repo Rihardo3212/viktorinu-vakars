@@ -1,0 +1,11 @@
+// =========================================================
+// main.scss
+// Galvenais SCSS fails. Tas apvieno visas daļas vienā
+// css/style.css failā (kompilē ar Live Sass Compiler vai
+// komandu: sass scss/main.scss css/style.css).
+// =========================================================
+
+@use "base";        // fons, teksts, virsraksti
+@use "layout";      // galvene, lapas josla, kājene
+@use "components";  // pogas, kartītes, tabulas, formas
+@use "game";        // spēles laukums un redaktors

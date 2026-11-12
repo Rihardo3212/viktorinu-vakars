@@ -1,0 +1,320 @@
+// =========================================================
+// _components.scss
+// Pogas, kartītes, tabulas, formas, galerija, karte.
+// =========================================================
+
+@use "sass:color";
+@use "variables" as *;
+@use "mixins" as *;
+
+/* ---------- Pogas ---------- */
+.btn-gold {
+  background-color: $gold;
+  border-color: $gold;
+  color: $navy;
+  font-weight: 700;
+
+  &:hover,
+  &:focus {
+    background-color: color.adjust($gold, $lightness: -8%);
+    border-color: color.adjust($gold, $lightness: -8%);
+    color: $navy;
+  }
+}
+
+.btn-navy {
+  background-color: $navy;
+  border-color: $navy;
+  color: $white;
+  font-weight: 700;
+
+  &:hover,
+  &:focus {
+    background-color: $navy-light;
+    border-color: $navy-light;
+    color: $white;
+  }
+}
+
+.btn-outline-navy {
+  border: 2px solid $navy;
+  color: $navy;
+  font-weight: 700;
+
+  &:hover,
+  &:focus {
+    background-color: $navy;
+    color: $white;
+  }
+}
+
+/* ---------- Sākumlapas lielā josla ---------- */
+.hero {
+  background: linear-gradient(135deg, $navy 0%, $navy-light 100%);
+  color: $white;
+  padding: 3.5rem 0;
+
+  @include up(lg) {
+    padding: 5rem 0;
+  }
+
+  h1 {
+    color: $white;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+
+    span {
+      color: $gold;
+    }
+  }
+
+  .lead {
+    color: rgba($white, 0.9);
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* ---------- Soļi "Kā tas strādā" ---------- */
+.step {
+  @include card-base;
+  padding: 1.75rem;
+  height: 100%;
+
+  .step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: $gold;
+    color: $navy;
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* ---------- Tēmu krājumu kartītes ---------- */
+.set-card {
+  @include card-base;
+  overflow: hidden;
+  height: 100%;
+  @include hover-lift;
+
+  img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: $navy;
+  }
+
+  .card-body {
+    padding: 1.25rem 1.5rem 1.5rem;
+  }
+}
+
+// Grūtības pakāpes birka
+.badge-level {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: rgba($navy, 0.08);
+  color: $navy;
+}
+
+/* ---------- Ikonu kartītes ---------- */
+.feature {
+  @include card-base;
+  padding: 1.5rem;
+  height: 100%;
+
+  .bi {
+    font-size: 2rem;
+    color: $navy-light;
+  }
+}
+
+/* ---------- Atsauksmes ---------- */
+.testimonial {
+  @include card-base;
+  padding: 1.5rem;
+  height: 100%;
+  border-left: 5px solid $gold;
+
+  blockquote {
+    margin-bottom: 0.75rem;
+    font-style: italic;
+  }
+
+  figcaption {
+    color: $muted;
+    font-weight: 700;
+  }
+}
+
+/* ---------- Cenu paketes ---------- */
+.price-card {
+  @include card-base;
+  padding: 2rem 1.5rem;
+  height: 100%;
+  text-align: center;
+
+  .price {
+    font-family: $font-heading;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: $navy;
+  }
+
+  &.featured {
+    border: 3px solid $gold;
+  }
+}
+
+/* ---------- Tabulas ---------- */
+.table-quiz {
+  @include card-base;
+  overflow: hidden;
+  margin-bottom: 0;
+
+  thead th {
+    background-color: $navy;
+    color: $white;
+    font-family: $font-heading;
+    font-weight: 600;
+    border: 0;
+  }
+
+  td,
+  th {
+    padding: 0.85rem 1rem;
+    vertical-align: middle;
+  }
+}
+
+/* ---------- Formas ---------- */
+.form-card {
+  @include card-base;
+  padding: 1.5rem;
+
+  @include up(md) {
+    padding: 2rem 2.5rem;
+  }
+}
+
+.form-label {
+  font-weight: 700;
+}
+
+// Komandu skaita izvēle nav jāstiepj pa visu platumu
+.team-count {
+  max-width: 14rem;
+}
+
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+  border-color: $navy-light;
+  box-shadow: 0 0 0 0.25rem rgba($gold, 0.45);
+}
+
+// Kļūdu teksts pietiekami tumšs uz balta fona
+.invalid-feedback {
+  color: $danger;
+  font-weight: 600;
+}
+
+/* ---------- Galerija ---------- */
+.gallery-item {
+  @include card-base;
+  overflow: hidden;
+  margin: 0;
+  height: 100%;
+
+  button {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: zoom-in;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    transition: transform $transition;
+  }
+
+  button:hover img,
+  button:focus img {
+    transform: scale(1.04);
+  }
+
+  figcaption {
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* ---------- Karte ---------- */
+.map-frame {
+  @include card-base;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+
+  @include up(lg) {
+    aspect-ratio: auto;
+    height: 100%;
+    min-height: 380px;
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+
+  li {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .bi {
+    font-size: 1.4rem;
+    color: $navy-light;
+  }
+}
+
+/* ---------- BUJ akordeons ---------- */
+.accordion-button:not(.collapsed) {
+  background-color: rgba($gold, 0.2);
+  color: $navy;
+}
+
+.accordion-button:focus {
+  box-shadow: 0 0 0 0.25rem rgba($gold, 0.45);
+}
+
+/* ---------- Teksta un attēla bloks ---------- */
+.media-block img {
+  @include card-base;
+  width: 100%;
+  height: auto;
+}

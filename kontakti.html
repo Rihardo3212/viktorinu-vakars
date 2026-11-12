@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="lv">
+<!--
+  kontakti.html
+  Kontaktinformācija, karte (OpenStreetMap) un atsauksmju forma ar validāciju (js/validation.js).
+  Projekts: "Viktorīnu vakars", kursa darbs "Web sistēmu izstrādes projekts".
+-->
+<head>
+  <!-- ===== Meta informācija ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sazinies ar &quot;Viktorīnu vakars&quot;: e-pasts, tālrunis, karte un atsauksmju forma.">
+  <title>Kontakti | Viktorīnu vakars</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+
+  <!-- ===== Fonti (Google Fonts) ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&amp;family=Poppins:wght@600;700&amp;display=swap">
+
+  <!-- ===== Stili: Bootstrap, ikonas, mūsu SCSS (kompilēts) ===== -->
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#saturs">Pāriet uz saturu</a>
+
+  <!-- ===== Galvene un navigācija (vienāda visās lapās) ===== -->
+  <nav class="navbar navbar-expand-lg navbar-dark site-nav sticky-top" aria-label="Galvenā izvēlne">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="img/logo.svg" alt="" width="40" height="40">
+        Viktorīnu <span>vakars</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Atvērt izvēlni">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Sākums</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="spelet.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Spēlēt</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="spelet.html">Sākt jaunu spēli</a></li>
+              <li><a class="dropdown-item" href="spele.html">Spēles laukums</a></li>
+              <li><a class="dropdown-item" href="rezultati.html">Rezultāti</a></li>
+              <li><a class="dropdown-item" href="izveidot.html">Izveido savu spēli</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="noteikumi.html">Kā spēlēt</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="temas.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tēmu krājumi</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="temas.html">Visi krājumi</a></li>
+              <li><a class="dropdown-item" href="tema-latvija.html">Latvija</a></li>
+              <li><a class="dropdown-item" href="tema-sports.html">Sports</a></li>
+              <li><a class="dropdown-item" href="tema-kino-muzika.html">Kino un mūzika</a></li>
+              <li><a class="dropdown-item" href="tema-pasaule.html">Pasaule</a></li>
+              <li><a class="dropdown-item" href="tema-zinatne.html">Zinātne un tehnoloģijas</a></li>
+              <li><a class="dropdown-item" href="tema-ediens.html">Ēdiens un dzērieni</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="pasakumiem.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pasākumiem</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="pasakumiem.html">Pakalpojums un cenas</a></li>
+              <li><a class="dropdown-item" href="pieteikums.html">Pieteikums</a></li>
+              <li><a class="dropdown-item" href="galerija.html">Galerija</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="par-mums.html">Par mums</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="kontakti.html">Kontakti</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="saturs">
+    <!-- ===== Lapas virsraksta josla ===== -->
+    <header class="page-hero">
+      <div class="container">
+        <nav aria-label="Ceļa norāde">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Sākums</a></li><li class="breadcrumb-item active" aria-current="page">Kontakti</li>
+          </ol>
+        </nav>
+        <h1>Kontakti</h1>
+        <p class="lead">Raksti mums, ja ir jautājumi, idejas jaunām tēmām vai atsauksme par spēli.</p>
+      </div>
+    </header>
+    <!-- ===== Kontaktinformācija un karte ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-5">
+            <h2 class="h4 mb-4">Kā ar mums sazināties</h2>
+            <ul class="contact-list">
+              <li><i class="bi bi-geo-alt" aria-hidden="true"></i><div><strong>Adrese</strong><br>Jelgava, Latvija</div></li>
+              <li><i class="bi bi-telephone" aria-hidden="true"></i><div><strong>Tālrunis</strong><br><a href="tel:+37120000000">+371&nbsp;20&nbsp;000&nbsp;000</a></div></li>
+              <li><i class="bi bi-envelope" aria-hidden="true"></i><div><strong>E-pasts</strong><br><a href="mailto:info@viktorinuvakars.lv">info@viktorinuvakars.lv</a></div></li>
+            </ul>
+            <h3 class="h5 mt-4">Darba laiks</h3>
+            <table class="table table-sm">
+              <caption class="visually-hidden">Darba laiks</caption>
+              <tbody>
+                <tr><th scope="row">Pirmdiena līdz piektdiena</th><td>10:00 - 18:00</td></tr>
+                <tr><th scope="row">Sestdiena</th><td>pasākumos</td></tr>
+                <tr><th scope="row">Svētdiena</th><td>brīvs</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-lg-7">
+            <div class="map-frame">
+              <iframe title="Karte: Jelgava"
+                      src="https://www.openstreetmap.org/export/embed.html?bbox=23.700%2C56.640%2C23.748%2C56.660&amp;layer=mapnik&amp;marker=56.6500%2C23.7240"
+                      loading="lazy"></iframe>
+            </div>
+            <p class="small mt-2 mb-0"><a href="https://www.openstreetmap.org/?mlat=56.6500&amp;mlon=23.7240#map=15/56.6500/23.7240" target="_blank" rel="noopener">Atvērt lielāku karti</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Atsauksmju forma ===== -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <h2 class="section-title">Atsauksme vai jautājums</h2>
+            <p class="section-lead">Visi lauki ir obligāti.</p>
+            <form class="form-card js-validate" id="feedbackForm" data-success="feedbackSuccess" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="fName">Vārds</label>
+                  <input type="text" class="form-control" id="fName" autocomplete="given-name" minlength="2" maxlength="40" required data-name>
+                  <div class="invalid-feedback">Ieraksti vārdu bez cipariem (vismaz 2 burti).</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="fEmail">E-pasts</label>
+                  <input type="email" class="form-control" id="fEmail" autocomplete="email" required>
+                  <div class="invalid-feedback">Ieraksti derīgu e-pasta adresi.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="fTopic">Tēma</label>
+                  <select class="form-select" id="fTopic" required>
+                    <option value="">Izvēlies tēmu</option>
+                    <option>Atsauksme par spēli</option>
+                    <option>Ideja jaunam krājumam</option>
+                    <option>Jautājums par pakalpojumu</option>
+                    <option>Cits</option>
+                  </select>
+                  <div class="invalid-feedback">Izvēlies tēmu.</div>
+                </div>
+                <div class="col-md-6">
+                  <span class="form-label d-block" id="ratingLabel">Vērtējums</span>
+                  <div class="btn-group flex-wrap" role="group" aria-labelledby="ratingLabel" data-rating>
+                    <input type="radio" class="btn-check" name="rating" id="star1" value="1">
+                    <label class="btn btn-outline-navy" for="star1">1 <i class="bi bi-star-fill" aria-hidden="true"></i></label>
+                    <input type="radio" class="btn-check" name="rating" id="star2" value="2">
+                    <label class="btn btn-outline-navy" for="star2">2 <i class="bi bi-star-fill" aria-hidden="true"></i></label>
+                    <input type="radio" class="btn-check" name="rating" id="star3" value="3">
+                    <label class="btn btn-outline-navy" for="star3">3 <i class="bi bi-star-fill" aria-hidden="true"></i></label>
+                    <input type="radio" class="btn-check" name="rating" id="star4" value="4">
+                    <label class="btn btn-outline-navy" for="star4">4 <i class="bi bi-star-fill" aria-hidden="true"></i></label>
+                    <input type="radio" class="btn-check" name="rating" id="star5" value="5">
+                    <label class="btn btn-outline-navy" for="star5">5 <i class="bi bi-star-fill" aria-hidden="true"></i></label>
+                  </div>
+                  <div class="invalid-feedback">Izvēlies vērtējumu no 1 līdz 5.</div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="fMessage">Ziņa</label>
+                  <textarea class="form-control" id="fMessage" rows="5" minlength="20" maxlength="600" required data-counter="fMessageCount"></textarea>
+                  <div class="invalid-feedback">Ziņai jābūt vismaz 20 rakstzīmes garai.</div>
+                  <div class="form-text" id="fMessageCount">0 / 600 rakstzīmes</div>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-gold btn-lg">Nosūtīt</button>
+                </div>
+              </div>
+            </form>
+
+            <!-- Paziņojums pēc veiksmīgas pārbaudes -->
+            <div class="alert alert-success mt-4 d-none" id="feedbackSuccess" role="status">
+              <h2 class="h5">Paldies par ziņu!</h2>
+              <p class="mb-0">Ziņa ir pārbaudīta. Šī ir mācību vietne, tāpēc tā nekur netiek sūtīta.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Kājene ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-5">
+          <h2>Viktorīnu vakars</h2>
+          <p>Jautājumu un atbilžu spēle pasākumiem. Spēlē uz lielā ekrāna, latviešu valodā un bez reģistrācijas.</p>
+        </div>
+        <div class="col-6 col-md-3">
+          <h2>Lapas</h2>
+          <ul>
+            <li><a href="spelet.html">Sākt spēli</a></li>
+            <li><a href="noteikumi.html">Kā spēlēt</a></li>
+            <li><a href="temas.html">Tēmu krājumi</a></li>
+            <li><a href="pasakumiem.html">Pasākumiem</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-4">
+          <h2>Kontakti</h2>
+          <ul>
+            <li><i class="bi bi-geo-alt" aria-hidden="true"></i> Jelgava, Latvija</li>
+            <li><i class="bi bi-envelope" aria-hidden="true"></i> <a href="mailto:info@viktorinuvakars.lv">info@viktorinuvakars.lv</a></li>
+            <li><a href="kontakti.html">Atsauksmju forma</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-note mb-0">
+        &copy; <span data-year>2026</span> R. S. Mācību projekts kursā "Web sistēmu izstrādes projekts" (LBTU).
+        Pakalpojums, cenas un kontaktinformācija ir izdomāti.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ===== Skripti: Bootstrap, kopējās funkcijas, lapas skripti ===== -->
+  <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/validation.js"></script>
+</body>
+</html>
