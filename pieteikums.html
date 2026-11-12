@@ -2,15 +2,15 @@
 <html lang="lv">
 <!--
   pieteikums.html
-  Pasākuma pieteikuma forma ar lauku validāciju (js/validation.js). Dati netiek sūtīti.
+  Jautājuma piedāvāšanas forma ar lauku validāciju (js/validation.js). Dati netiek sūtīti.
   Projekts: "Viktorīnu vakars", kursa darbs "Web sistēmu izstrādes projekts".
 -->
 <head>
   <!-- ===== Meta informācija ===== -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Piesaki viktorīnas vadītāju savam pasākumam: datums, viesu skaits un pakete.">
-  <title>Pieteikums | Viktorīnu vakars</title>
+  <meta name="description" content="Piedāvā savu jautājumu kādam no viktorīnas krājumiem. Forma ar lauku validāciju.">
+  <title>Piedāvā jautājumu | Viktorīnu vakars</title>
   <link rel="icon" href="img/logo.svg" type="image/svg+xml">
 
   <!-- ===== Fonti (Google Fonts) ===== -->
@@ -65,8 +65,8 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle active" href="pasakumiem.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pasākumiem</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="pasakumiem.html">Pakalpojums un cenas</a></li>
-              <li><a class="dropdown-item active" aria-current="page" href="pieteikums.html">Pieteikums</a></li>
+              <li><a class="dropdown-item" href="pasakumiem.html">Padomi pasākumam</a></li>
+              <li><a class="dropdown-item active" aria-current="page" href="pieteikums.html">Piedāvā jautājumu</a></li>
               <li><a class="dropdown-item" href="galerija.html">Galerija</a></li>
             </ul>
           </li>
@@ -83,100 +83,106 @@
       <div class="container">
         <nav aria-label="Ceļa norāde">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Sākums</a></li><li class="breadcrumb-item"><a href="pasakumiem.html">Pasākumiem</a></li><li class="breadcrumb-item active" aria-current="page">Pieteikums</li>
+            <li class="breadcrumb-item"><a href="index.html">Sākums</a></li><li class="breadcrumb-item"><a href="pasakumiem.html">Padomi pasākumam</a></li><li class="breadcrumb-item active" aria-current="page">Piedāvā jautājumu</li>
           </ol>
         </nav>
-        <h1>Pieteikums pasākumam</h1>
-        <p class="lead">Aizpildi formu, un mēs sazināsimies divu darba dienu laikā.</p>
+        <h1>Piedāvā jautājumu</h1>
+        <p class="lead">Zini labu jautājumu? Piedāvā to, un tas var nonākt kādā no krājumiem.</p>
       </div>
     </header>
     <section class="section">
       <div class="container">
         <div class="row g-4">
-          <!-- ===== Pieteikuma forma ===== -->
+          <!-- ===== Jautājuma forma ===== -->
           <div class="col-lg-8">
-            <form class="form-card js-validate" id="bookingForm" data-success="bookingSuccess" novalidate>
-              <h2 class="h4 mb-3">Kontaktinformācija</h2>
+            <form class="form-card js-validate" id="questionForm" data-success="questionSuccess" novalidate>
+              <h2 class="h4 mb-3">Par tevi</h2>
               <div class="row g-3 mb-4">
                 <div class="col-md-6">
-                  <label class="form-label" for="bName">Vārds, uzvārds</label>
-                  <input type="text" class="form-control" id="bName" autocomplete="name" minlength="3" maxlength="60" required data-name>
-                  <div class="invalid-feedback">Ieraksti vārdu un uzvārdu bez cipariem (vismaz 3 burti).</div>
+                  <label class="form-label" for="qName">Vārds</label>
+                  <input type="text" class="form-control" id="qName" autocomplete="given-name" minlength="2" maxlength="40" required data-name>
+                  <div class="invalid-feedback">Ieraksti vārdu bez cipariem (vismaz 2 burti).</div>
                 </div>
                 <div class="col-md-6">
-                  <label class="form-label" for="bEmail">E-pasts</label>
-                  <input type="email" class="form-control" id="bEmail" autocomplete="email" placeholder="vards@epasts.lv" required>
+                  <label class="form-label" for="qEmail">E-pasts</label>
+                  <input type="email" class="form-control" id="qEmail" autocomplete="email" placeholder="vards@epasts.lv" required>
                   <div class="invalid-feedback">Ieraksti derīgu e-pasta adresi.</div>
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label" for="bPhone">Tālrunis</label>
-                  <input type="tel" class="form-control" id="bPhone" autocomplete="tel" placeholder="+371 20000000"
-                         pattern="^(\+371 ?)?[2-9][0-9]{7}$" required>
-                  <div class="invalid-feedback">Latvijas numurs: 8 cipari, var sākt ar +371.</div>
                 </div>
               </div>
 
-              <h2 class="h4 mb-3">Pasākums</h2>
+              <h2 class="h4 mb-3">Jautājums</h2>
               <div class="row g-3 mb-4">
                 <div class="col-md-6">
-                  <label class="form-label" for="bDate">Datums</label>
-                  <input type="date" class="form-control" id="bDate" required data-future>
-                  <div class="invalid-feedback">Izvēlies datumu nākotnē.</div>
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label" for="bCity">Pilsēta vai vieta</label>
-                  <input type="text" class="form-control" id="bCity" maxlength="60" placeholder="Piem., Jelgava" required>
-                  <div class="invalid-feedback">Norādi pasākuma vietu.</div>
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label" for="bGuests">Viesu skaits</label>
-                  <input type="number" class="form-control" id="bGuests" min="5" max="200" step="1" required>
-                  <div class="invalid-feedback">Viesu skaitam jābūt no 5 līdz 200.</div>
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label" for="bPackage">Pakete</label>
-                  <select class="form-select" id="bPackage" required>
-                    <option value="">Izvēlies paketi</option>
-                    <option>Mājas ballīte (120 &euro;)</option>
-                    <option>Uzņēmuma pasākums (290 &euro;)</option>
-                    <option>Lielais pasākums (490 &euro;)</option>
+                  <label class="form-label" for="qSet">Krājums</label>
+                  <select class="form-select" id="qSet" required>
+                    <option value="">Izvēlies krājumu</option>
+                    <option>Latvija</option>
+                    <option>Sports</option>
+                    <option>Kino un mūzika</option>
+                    <option>Pasaule</option>
+                    <option>Zinātne un tehnoloģijas</option>
+                    <option>Ēdiens un dzērieni</option>
+                    <option>Jauns krājums</option>
                   </select>
-                  <div class="invalid-feedback">Izvēlies vienu no paketēm.</div>
+                  <div class="invalid-feedback">Izvēlies krājumu.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="qPoints">Grūtība (punkti)</label>
+                  <select class="form-select" id="qPoints" required>
+                    <option value="">Izvēlies grūtību</option>
+                    <option>100 (ļoti viegls)</option>
+                    <option>200</option>
+                    <option>300</option>
+                    <option>400</option>
+                    <option>500 (grūts)</option>
+                  </select>
+                  <div class="invalid-feedback">Izvēlies grūtības pakāpi.</div>
                 </div>
                 <div class="col-12">
-                  <label class="form-label" for="bNotes">Papildu vēlmes <span class="text-soft fw-normal">(nav obligāti)</span></label>
-                  <textarea class="form-control" id="bNotes" rows="4" maxlength="500" data-counter="bNotesCount"
-                            placeholder="Piem., jautājumi par jubilāru, vēlamā tēma"></textarea>
-                  <div class="form-text" id="bNotesCount">0 / 500 rakstzīmes</div>
+                  <label class="form-label" for="qText">Jautājums</label>
+                  <textarea class="form-control" id="qText" rows="3" minlength="10" maxlength="200" required data-counter="qTextCount"
+                            placeholder="Piem., Kā sauc Latvijas augstāko virsotni?"></textarea>
+                  <div class="invalid-feedback">Jautājumam jābūt vismaz 10 rakstzīmes garam.</div>
+                  <div class="form-text" id="qTextCount">0 / 200 rakstzīmes</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="qAnswer">Pareizā atbilde</label>
+                  <input type="text" class="form-control" id="qAnswer" maxlength="80" required>
+                  <div class="invalid-feedback">Ieraksti pareizo atbildi.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="qSource">Avots <span class="text-soft fw-normal">(nav obligāti)</span></label>
+                  <input type="url" class="form-control" id="qSource" placeholder="https://...">
+                  <div class="invalid-feedback">Saitei jāsākas ar http:// vai https://.</div>
                 </div>
               </div>
 
               <div class="form-check mb-4">
-                <input class="form-check-input" type="checkbox" id="bAgree" required>
-                <label class="form-check-label" for="bAgree">Piekrītu, ka mani dati tiek izmantoti, lai sazinātos par pieteikumu.</label>
-                <div class="invalid-feedback">Bez piekrišanas pieteikumu nevar nosūtīt.</div>
+                <input class="form-check-input" type="checkbox" id="qAgree" required>
+                <label class="form-check-label" for="qAgree">Piekrītu, ka mans jautājums var tikt izmantots spēlē.</label>
+                <div class="invalid-feedback">Bez piekrišanas jautājumu nevar nosūtīt.</div>
               </div>
 
-              <button type="submit" class="btn btn-gold btn-lg">Nosūtīt pieteikumu</button>
+              <button type="submit" class="btn btn-gold btn-lg">Nosūtīt jautājumu</button>
             </form>
 
             <!-- Paziņojums pēc veiksmīgas pārbaudes -->
-            <div class="alert alert-success mt-4 d-none" id="bookingSuccess" role="status">
-              <h2 class="h5">Paldies par pieteikumu!</h2>
+            <div class="alert alert-success mt-4 d-none" id="questionSuccess" role="status">
+              <h2 class="h5">Paldies par jautājumu!</h2>
               <p class="mb-0">Visi lauki aizpildīti pareizi. Šī ir mācību vietne, tāpēc dati nekur netiek sūtīti.</p>
             </div>
           </div>
 
-          <!-- ===== Kas notiek tālāk ===== -->
+          <!-- ===== Labs jautājums ===== -->
           <aside class="col-lg-4">
             <div class="feature">
-              <h2 class="h5">Kas notiek pēc pieteikuma</h2>
-              <ol class="mb-0">
-                <li class="mb-2">Mēs pārbaudām, vai datums ir brīvs.</li>
-                <li class="mb-2">Piezvanām un precizējam detaļas.</li>
-                <li class="mb-2">Atsūtām līgumu un rēķinu.</li>
-                <li>Pasākuma dienā ieradāmies stundu pirms sākuma.</li>
-              </ol>
+              <h2 class="h5">Kāds ir labs jautājums</h2>
+              <ul class="mb-0">
+                <li class="mb-2">Tam ir viena skaidra atbilde.</li>
+                <li class="mb-2">To var nolasīt skaļi 10 sekundēs.</li>
+                <li class="mb-2">Atbilde ir pārbaudīta, ja iespējams, norādi avotu.</li>
+                <li>Tas nav aizskarošs nevienam no viesiem.</li>
+              </ul>
             </div>
           </aside>
         </div>
@@ -212,7 +218,7 @@
       </div>
       <p class="footer-note mb-0">
         &copy; <span data-year>2026</span> R. S. Mācību projekts kursā "Web sistēmu izstrādes projekts" (LBTU).
-        Pakalpojums, cenas un kontaktinformācija ir izdomāti.
+        Kontaktinformācija ir izdomāta.
       </p>
     </div>
   </footer>

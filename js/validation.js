@@ -1,6 +1,6 @@
 /* =========================================================
    validation.js
-   Pieteikuma un atsauksmju formu validācija.
+   Jautājuma piedāvāšanas un atsauksmju formu validācija.
    Izmanto HTML5 atribūtus (required, pattern, minlength)
    un papildu pārbaudes JavaScript. Dati nekur netiek sūtīti.
    ========================================================= */
@@ -14,20 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* ---------- Papildu pārbaudes katram laukam ---------- */
     function customChecks() {
-
-      /* Datumam jābūt nākotnē (vismaz rīt) */
-      form.querySelectorAll("input[data-future]").forEach((input) => {
-        input.setCustomValidity("");
-        if (input.value) {
-          const chosen = new Date(input.value + "T00:00:00");
-          const tomorrow = new Date();
-          tomorrow.setHours(0, 0, 0, 0);
-          tomorrow.setDate(tomorrow.getDate() + 1);
-          if (chosen < tomorrow) {
-            input.setCustomValidity("Datumam jābūt nākotnē");
-          }
-        }
-      });
 
       /* Vārdā nedrīkst būt cipari */
       form.querySelectorAll("input[data-name]").forEach((input) => {

@@ -44,8 +44,8 @@ tema-kino-muzika.html   krājums "Kino un mūzika"
 tema-pasaule.html       krājums "Pasaule"
 tema-zinatne.html       krājums "Zinātne un tehnoloģijas"
 tema-ediens.html        krājums "Ēdiens un dzērieni"
-pasakumiem.html         pakalpojums un cenas
-pieteikums.html         pasākuma pieteikuma forma
+pasakumiem.html         padomi pasākuma sarīkošanai
+pieteikums.html         forma "Piedāvā jautājumu"
 galerija.html           attēlu galerija
 par-mums.html           par projektu
 kontakti.html           kontakti, karte, atsauksmju forma

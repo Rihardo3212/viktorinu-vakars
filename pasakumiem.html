@@ -2,15 +2,15 @@
 <html lang="lv">
 <!--
   pasakumiem.html
-  Pakalpojuma apraksts, cenu paketes (kartītes) un pakešu salīdzinājuma tabula.
+  Padomi viktorīnas sarīkošanai: soļi, tehnikas tabula, laika plāns, krājumu ieteikumi pasākumu veidiem.
   Projekts: "Viktorīnu vakars", kursa darbs "Web sistēmu izstrādes projekts".
 -->
 <head>
   <!-- ===== Meta informācija ===== -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Viktorīnas vadītājs jūsu pasākumā: cenu paketes uzņēmumiem, ballītēm un lieliem pasākumiem Zemgalē.">
-  <title>Pasākumiem | Viktorīnu vakars</title>
+  <meta name="description" content="Kā sarīkot viktorīnu vakaru: sagatavošanās soļi, vajadzīgā tehnika, laika plāns, balvu idejas un krājumi dažādiem pasākumiem.">
+  <title>Padomi pasākumam | Viktorīnu vakars</title>
   <link rel="icon" href="img/logo.svg" type="image/svg+xml">
 
   <!-- ===== Fonti (Google Fonts) ===== -->
@@ -65,8 +65,8 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle active" href="pasakumiem.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pasākumiem</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item active" aria-current="page" href="pasakumiem.html">Pakalpojums un cenas</a></li>
-              <li><a class="dropdown-item" href="pieteikums.html">Pieteikums</a></li>
+              <li><a class="dropdown-item active" aria-current="page" href="pasakumiem.html">Padomi pasākumam</a></li>
+              <li><a class="dropdown-item" href="pieteikums.html">Piedāvā jautājumu</a></li>
               <li><a class="dropdown-item" href="galerija.html">Galerija</a></li>
             </ul>
           </li>
@@ -83,27 +83,27 @@
       <div class="container">
         <nav aria-label="Ceļa norāde">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Sākums</a></li><li class="breadcrumb-item active" aria-current="page">Pasākumiem</li>
+            <li class="breadcrumb-item"><a href="index.html">Sākums</a></li><li class="breadcrumb-item active" aria-current="page">Padomi pasākumam</li>
           </ol>
         </nav>
-        <h1>Viktorīna jūsu pasākumā</h1>
-        <p class="lead">Mēs atbraucam ar vadītāju, tehniku un jautājumiem. Jums atliek tikai spēlēt.</p>
+        <h1>Padomi pasākumam</h1>
+        <p class="lead">Kā sarīkot viktorīnu vakaru mājās, darbā vai skolā. Viss, kas jāzina pirms spēles.</p>
       </div>
     </header>
-    <!-- ===== Pakalpojuma apraksts ===== -->
+    <!-- ===== Sagatavošanās soļi ===== -->
     <section class="section">
       <div class="container">
         <div class="row g-5 align-items-center">
           <div class="col-lg-6">
-            <h2>Ko mēs piedāvājam</h2>
-            <p>Spēli var vadīt pats, bet lielā pasākumā ir ērtāk, ja to dara kāds cits. Mūsu vadītājs atbrauc, uzstāda ekrānu, izskaidro noteikumus un uztur labu noskaņojumu visu spēles laiku.</p>
-            <p>Strādājam Jelgavā, Rīgā un visā Zemgalē. Var vienoties arī par citām vietām Latvijā.</p>
-            <ul class="list-unstyled">
-              <li class="mb-2"><i class="bi bi-mic" aria-hidden="true"></i> Pieredzējis vadītājs</li>
-              <li class="mb-2"><i class="bi bi-projector" aria-hidden="true"></i> Projektors, ekrāns un skaņa</li>
-              <li class="mb-2"><i class="bi bi-pencil" aria-hidden="true"></i> Jautājumi par jūsu uzņēmumu vai jubilāru</li>
-              <li class="mb-2"><i class="bi bi-trophy" aria-hidden="true"></i> Balvas uzvarētājiem</li>
-            </ul>
+            <h2>Kā sagatavoties</h2>
+            <p>Viktorīnas vakaru var sarīkot pats, un tam nevajag daudz laika. Lielākā daļa darba ir jāizdara dienu vai divas pirms pasākuma.</p>
+            <ol>
+              <li class="mb-2"><strong>Izvēlies krājumu.</strong> Padomā par viesiem: kādas tēmas viņiem patīk un cik grūtus jautājumus viņi gribēs.</li>
+              <li class="mb-2"><strong>Pārbaudi tehniku.</strong> Pievieno datoru ekrānam un izmēģini pilnekrāna režīmu.</li>
+              <li class="mb-2"><strong>Izvēlies vadītāju.</strong> Vadītājs lasa jautājumus un piešķir punktus, tāpēc viņš pats nespēlē.</li>
+              <li class="mb-2"><strong>Sagatavo balvas.</strong> Tās nav obligātas, bet komandas cīnās azartiskāk.</li>
+              <li><strong>Izlasi noteikumus.</strong> Pirms spēles tos īsi izstāsti visiem, sk. <a href="noteikumi.html">Kā spēlēt</a>.</li>
+            </ol>
           </div>
           <div class="col-lg-6 media-block">
             <img src="img/pasakumi.svg" width="800" height="600" alt="Komandas pie ekrāna ar spēles laukumu">
@@ -112,63 +112,92 @@
       </div>
     </section>
 
-    <!-- ===== Cenu paketes ===== -->
+    <!-- ===== Tehnika (tabula) ===== -->
     <section class="section section-alt">
       <div class="container">
-        <h2 class="section-title">Cenas</h2>
-        <p class="section-lead">Cenās ir iekļauts PVN un ceļš līdz 50 km no Jelgavas.</p>
-        <div class="row g-4">
-          <div class="col-md-4">
-            <div class="price-card">
-              <h3 class="h5">Mājas ballīte</h3>
-              <p class="price">120 &euro;</p>
-              <p class="text-soft">Līdz 15 viesiem, 1 stunda</p>
-              <a class="btn btn-outline-navy" href="pieteikums.html">Pieteikties</a>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="price-card featured">
-              <span class="badge-level">Populārākā</span>
-              <h3 class="h5 mt-2">Uzņēmuma pasākums</h3>
-              <p class="price">290 &euro;</p>
-              <p class="text-soft">Līdz 60 viesiem, 1,5 stundas</p>
-              <a class="btn btn-gold" href="pieteikums.html">Pieteikties</a>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="price-card">
-              <h3 class="h5">Lielais pasākums</h3>
-              <p class="price">490 &euro;</p>
-              <p class="text-soft">Līdz 200 viesiem, 2 stundas</p>
-              <a class="btn btn-outline-navy" href="pieteikums.html">Pieteikties</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Pakešu salīdzinājums tabulā -->
-        <h3 class="h4 mt-5 mb-3">Kas iekļauts paketēs</h3>
+        <h2 class="section-title">Kas vajadzīgs</h2>
+        <p class="section-lead">Pietiek ar to, kas ir gandrīz katrās mājās. Pārējais padara spēli ērtāku.</p>
         <div class="table-responsive">
-          <table class="table table-quiz text-center">
-            <caption class="visually-hidden">Cenu pakešu salīdzinājums</caption>
+          <table class="table table-quiz">
+            <caption class="visually-hidden">Viktorīnai vajadzīgā tehnika un lietas</caption>
             <thead>
               <tr>
-                <th scope="col" class="text-start">Iekļauts</th>
-                <th scope="col">Mājas ballīte</th>
-                <th scope="col">Uzņēmuma pasākums</th>
-                <th scope="col">Lielais pasākums</th>
+                <th scope="col">Lieta</th>
+                <th scope="col">Kam tā vajadzīga</th>
+                <th scope="col" class="text-center">Obligāti</th>
               </tr>
             </thead>
             <tbody>
-              <tr><th scope="row" class="text-start">Viesu skaits</th><td>līdz 15</td><td>līdz 60</td><td>līdz 200</td></tr>
-              <tr><th scope="row" class="text-start">Ilgums</th><td>1 h</td><td>1,5 h</td><td>2 h</td></tr>
-              <tr><th scope="row" class="text-start">Vadītājs</th><td><i class="bi bi-check-lg text-success" aria-hidden="true"></i><span class="visually-hidden">Ir</span></td><td><i class="bi bi-check-lg text-success" aria-hidden="true"></i><span class="visually-hidden">Ir</span></td><td><i class="bi bi-check-lg text-success" aria-hidden="true"></i><span class="visually-hidden">Ir</span></td></tr>
-              <tr><th scope="row" class="text-start">Projektors un skaņa</th><td><i class="bi bi-x-lg text-soft" aria-hidden="true"></i><span class="visually-hidden">Nav</span></td><td><i class="bi bi-check-lg text-success" aria-hidden="true"></i><span class="visually-hidden">Ir</span></td><td><i class="bi bi-check-lg text-success" aria-hidden="true"></i><span class="visually-hidden">Ir</span></td></tr>
-              <tr><th scope="row" class="text-start">Savi jautājumi</th><td><i class="bi bi-x-lg text-soft" aria-hidden="true"></i><span class="visually-hidden">Nav</span></td><td>1 kategorija</td><td>3 kategorijas</td></tr>
-              <tr><th scope="row" class="text-start">Balvas uzvarētājiem</th><td><i class="bi bi-x-lg text-soft" aria-hidden="true"></i><span class="visually-hidden">Nav</span></td><td><i class="bi bi-x-lg text-soft" aria-hidden="true"></i><span class="visually-hidden">Nav</span></td><td><i class="bi bi-check-lg text-success" aria-hidden="true"></i><span class="visually-hidden">Ir</span></td></tr>
+              <tr><td>Dators vai klēpjdators</td><td>Spēles atvēršanai un punktu skaitīšanai</td><td class="text-center"><i class="bi bi-check-lg text-success" aria-hidden="true"></i><span class="visually-hidden">Ir</span></td></tr>
+              <tr><td>Televizors vai projektors</td><td>Lai laukumu redz visi viesi</td><td class="text-center"><i class="bi bi-check-lg text-success" aria-hidden="true"></i><span class="visually-hidden">Ir</span></td></tr>
+              <tr><td>HDMI kabelis</td><td>Datora savienošanai ar ekrānu</td><td class="text-center"><i class="bi bi-check-lg text-success" aria-hidden="true"></i><span class="visually-hidden">Ir</span></td></tr>
+              <tr><td>Skaļruņi</td><td>Ja jautājumos ir mūzika vai telpa ir liela</td><td class="text-center"><i class="bi bi-x-lg text-soft" aria-hidden="true"></i><span class="visually-hidden">Nav</span></td></tr>
+              <tr><td>Papīrs un pildspalvas</td><td>Komandām piezīmēm</td><td class="text-center"><i class="bi bi-x-lg text-soft" aria-hidden="true"></i><span class="visually-hidden">Nav</span></td></tr>
+              <tr><td>Zvaniņš vai cits signāls</td><td>Lai būtu skaidrs, kura komanda pirmā grib atbildēt</td><td class="text-center"><i class="bi bi-x-lg text-soft" aria-hidden="true"></i><span class="visually-hidden">Nav</span></td></tr>
             </tbody>
           </table>
         </div>
-        <p class="mt-4 mb-0">Gatavs rezervēt datumu? <a href="pieteikums.html">Aizpildi pieteikumu</a> vai apskati <a href="galerija.html">foto no pasākumiem</a>.</p>
+      </div>
+    </section>
+
+    <!-- ===== Laika plāns ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-7">
+            <h2 class="mb-3">Laika plāns vakaram</h2>
+            <div class="table-responsive">
+              <table class="table table-quiz">
+                <caption class="visually-hidden">Piemēra laika plāns viktorīnas vakaram</caption>
+                <thead><tr><th scope="col">Laiks</th><th scope="col">Kas notiek</th></tr></thead>
+                <tbody>
+                  <tr><td>19:00</td><td>Viesi ierodas, sadalās komandās un izdomā nosaukumus</td></tr>
+                  <tr><td>19:20</td><td>Vadītājs izstāsta noteikumus</td></tr>
+                  <tr><td>19:30</td><td>Pirmā spēle (apmēram 45 minūtes)</td></tr>
+                  <tr><td>20:15</td><td>Pārtraukums un uzkodas</td></tr>
+                  <tr><td>20:30</td><td>Otrā spēle ar citu krājumu</td></tr>
+                  <tr><td>21:15</td><td>Uzvarētāju apbalvošana</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <aside class="col-lg-5">
+            <div class="feature">
+              <h2 class="h5"><i class="bi bi-trophy" aria-hidden="true"></i> Balvu idejas</h2>
+              <ul class="mb-0">
+                <li>Šokolāde vai konfektes visai komandai</li>
+                <li>Pašu taisīts „kauss” vai medaļas</li>
+                <li>Tiesības izvēlēties nākamās spēles tēmu</li>
+                <li>Uzvarētāju foto uz ekrāna pasākuma beigās</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Krājumi pēc pasākuma veida ===== -->
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Ko spēlēt dažādos pasākumos</h2>
+        <p class="section-lead">Ieteikumi, ar kuru krājumu sākt un cik komandas veidot.</p>
+        <div class="table-responsive">
+          <table class="table table-striped table-quiz">
+            <caption class="visually-hidden">Ieteicamie krājumi pēc pasākuma veida</caption>
+            <thead>
+              <tr><th scope="col">Pasākums</th><th scope="col">Ieteicamais krājums</th><th scope="col">Komandas</th><th scope="col">Padoms</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Dzimšanas diena</td><td><a href="izveidot.html">Mana spēle</a></td><td>2 līdz 4</td><td>Viena kategorija par jubilāru</td></tr>
+              <tr><td>Ģimenes svētki</td><td><a href="tema-ediens.html">Ēdiens un dzērieni</a></td><td>2 līdz 3</td><td>Komandās jaukt vecākus un bērnus</td></tr>
+              <tr><td>Darba ballīte</td><td><a href="tema-kino-muzika.html">Kino un mūzika</a></td><td>4 līdz 6</td><td>Komandas veidot no dažādām nodaļām</td></tr>
+              <tr><td>Skolas stunda</td><td><a href="tema-zinatne.html">Zinātne un tehnoloģijas</a></td><td>3 līdz 5</td><td>Jautājumi par tikko apgūto vielu</td></tr>
+              <tr><td>Valsts svētki</td><td><a href="tema-latvija.html">Latvija</a></td><td>2 līdz 6</td><td>Spēlēt pirms svētku vakariņām</td></tr>
+              <tr><td>Draugu vakars</td><td><a href="tema-pasaule.html">Pasaule</a></td><td>2 līdz 4</td><td>Otrajā spēlē ļaut zaudētājiem izvēlēties tēmu</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mt-4 mb-0">Ir ideja labam jautājumam? <a href="pieteikums.html">Piedāvā to mums</a> vai apskati <a href="galerija.html">galeriju</a>.</p>
       </div>
     </section>
   </main>
@@ -201,7 +230,7 @@
       </div>
       <p class="footer-note mb-0">
         &copy; <span data-year>2026</span> R. S. Mācību projekts kursā "Web sistēmu izstrādes projekts" (LBTU).
-        Pakalpojums, cenas un kontaktinformācija ir izdomāti.
+        Kontaktinformācija ir izdomāta.
       </p>
     </div>
   </footer>
